@@ -4,20 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
-  Heart,
-  Activity,
-  Thermometer,
-  Weight,
-  Clock,
+  DollarSign,
   TrendingUp,
+  Users,
+  Clock,
+  ShoppingCart,
   AlertTriangle,
   CheckCircle,
   Zap,
-  Brain
+  Brain,
+  Utensils,
+  BarChart3
 } from "lucide-react";
 
 export const InteractiveDemo = () => {
-  const [activeMetric, setActiveMetric] = useState("heart-rate");
+  const [activeMetric, setActiveMetric] = useState("revenue");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const startAnalysis = () => {
@@ -25,41 +26,41 @@ export const InteractiveDemo = () => {
     setTimeout(() => setIsAnalyzing(false), 3000);
   };
 
-  const healthMetrics = [
+  const restaurantMetrics = [
     {
-      id: "heart-rate",
-      icon: Heart,
-      label: "Heart Rate",
-      value: "78 BPM",
-      status: "normal",
-      change: "+2%",
+      id: "revenue",
+      icon: DollarSign,
+      label: "Daily Revenue",
+      value: "₹45,280",
+      status: "excellent",
+      change: "+18%",
       color: "text-green-500"
     },
     {
-      id: "activity",
-      icon: Activity,
-      label: "Activity Level",
-      value: "High",
+      id: "orders",
+      icon: ShoppingCart,
+      label: "Orders Today",
+      value: "156",
       status: "good",
-      change: "+15%",
+      change: "+12%",
       color: "text-blue-500"
     },
     {
-      id: "temperature",
-      icon: Thermometer,
-      label: "Temperature",
-      value: "101.2°F",
+      id: "customers",
+      icon: Users,
+      label: "Active Customers",
+      value: "89",
       status: "normal",
-      change: "0%",
+      change: "+5%",
       color: "text-orange-500"
     },
     {
-      id: "weight",
-      icon: Weight,
-      label: "Weight",
-      value: "25.3 lbs",
-      status: "stable",
-      change: "-0.2%",
+      id: "wait-time",
+      icon: Clock,
+      label: "Avg Wait Time",
+      value: "8 min",
+      status: "optimal",
+      change: "-15%",
       color: "text-purple-500"
     }
   ];
@@ -68,19 +69,19 @@ export const InteractiveDemo = () => {
     {
       type: "positive",
       icon: CheckCircle,
-      message: "Heart rate is within optimal range for a 3-year-old Golden Retriever",
-      confidence: 98
+      message: "Revenue 18% above target - excellent performance during dinner rush",
+      confidence: 95
     },
     {
       type: "attention",
       icon: AlertTriangle,
-      message: "Slight increase in activity suggests high energy - consider extending walks",
-      confidence: 85
+      message: "Table 7 waiting longer than usual - consider priority service",
+      confidence: 88
     },
     {
       type: "positive",
       icon: TrendingUp,
-      message: "Weight trending perfectly according to breed standards",
+      message: "Popular items trending: Butter Chicken (+25%) and Biryani (+30%)",
       confidence: 92
     }
   ];
@@ -94,11 +95,11 @@ export const InteractiveDemo = () => {
             Live AI Demo
           </Badge>
           <h2 className="text-4xl lg:text-6xl font-bold">
-            See AI in
+            See Restaurant AI in
             <span className="block text-gradient-primary">Real Action</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Watch how our AI analyzes your pet's health data in real-time and provides actionable insights
+            Watch how our AI analyzes restaurant data in real-time and provides actionable business insights
           </p>
         </div>
 
@@ -108,7 +109,7 @@ export const InteractiveDemo = () => {
             <div className="lg:col-span-2 space-y-6">
               <Card className="card-premium p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-semibold">Health Metrics Dashboard</h3>
+                  <h3 className="text-xl font-semibold">Restaurant Analytics Dashboard</h3>
                   <Button 
                     onClick={startAnalysis}
                     disabled={isAnalyzing}
@@ -129,7 +130,7 @@ export const InteractiveDemo = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  {healthMetrics.map((metric) => (
+                  {restaurantMetrics.map((metric) => (
                     <Card
                       key={metric.id}
                       className={`p-4 cursor-pointer transition-all duration-300 border-2 ${
@@ -141,14 +142,14 @@ export const InteractiveDemo = () => {
                     >
                       <div className="flex items-center justify-between mb-3">
                         <metric.icon className={`w-6 h-6 ${metric.color}`} />
-                        <Badge variant={metric.status === 'normal' || metric.status === 'good' ? 'default' : 'secondary'}>
+                        <Badge variant={metric.status === 'excellent' || metric.status === 'good' || metric.status === 'optimal' ? 'default' : 'secondary'}>
                           {metric.status}
                         </Badge>
                       </div>
                       <div className="space-y-1">
                         <p className="text-sm font-medium text-muted-foreground">{metric.label}</p>
                         <p className="text-2xl font-bold">{metric.value}</p>
-                        <p className={`text-sm ${metric.change.startsWith('+') ? 'text-green-600' : metric.change.startsWith('-') ? 'text-red-600' : 'text-muted-foreground'}`}>
+                        <p className={`text-sm ${metric.change.startsWith('+') ? 'text-green-600' : metric.change.startsWith('-') ? 'text-green-600' : 'text-muted-foreground'}`}>
                           {metric.change} from last week
                         </p>
                       </div>
@@ -160,12 +161,12 @@ export const InteractiveDemo = () => {
                 {isAnalyzing && (
                   <div className="space-y-4 p-4 bg-muted/50 rounded-xl">
                     <div className="flex items-center gap-3">
-                      <Brain className="w-5 h-5 text-primary animate-pulse" />
+                      <BarChart3 className="w-5 h-5 text-primary animate-pulse" />
                       <span className="text-sm font-medium">AI Analysis in Progress...</span>
                     </div>
                     <Progress value={33} className="h-2" />
                     <div className="text-xs text-muted-foreground">
-                      Processing health patterns and generating insights...
+                      Processing sales patterns and generating business insights...
                     </div>
                   </div>
                 )}
@@ -174,7 +175,7 @@ export const InteractiveDemo = () => {
               {/* Selected Metric Detail */}
               <Card className="card-premium p-6">
                 <h4 className="text-lg font-semibold mb-4">
-                  {healthMetrics.find(m => m.id === activeMetric)?.label} Trends
+                  {restaurantMetrics.find(m => m.id === activeMetric)?.label} Trends
                 </h4>
                 <div className="h-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center">
                   <div className="text-center space-y-2">
@@ -231,16 +232,16 @@ export const InteractiveDemo = () => {
                 <h3 className="text-lg font-semibold mb-4">Recommended Actions</h3>
                 <div className="space-y-3">
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Clock className="w-4 h-4 mr-2" />
-                    Schedule Vet Checkup
+                    <Utensils className="w-4 h-4 mr-2" />
+                    Update Menu Items
                   </Button>
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Activity className="w-4 h-4 mr-2" />
-                    Update Exercise Plan
+                    <Users className="w-4 h-4 mr-2" />
+                    Staff Performance
                   </Button>
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Share with Vet
+                    <BarChart3 className="w-4 h-4 mr-2" />
+                    Generate Report
                   </Button>
                 </div>
               </Card>

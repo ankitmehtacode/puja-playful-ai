@@ -5,7 +5,7 @@ import {
   Menu, 
   X, 
   Sparkles, 
-  Heart,
+  Utensils,
   Brain,
   User,
   LogIn
@@ -27,7 +27,7 @@ export const Header = () => {
   const navItems = [
     { label: "Features", href: "#features", icon: Sparkles },
     { label: "AI Analytics", href: "#analytics", icon: Brain },
-    { label: "Pet Care", href: "#care", icon: Heart },
+    { label: "Restaurant POS", href: "#pos", icon: Utensils },
     { label: "Pricing", href: "#pricing", icon: null },
   ];
 
@@ -45,12 +45,12 @@ export const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="relative">
               <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
-                <Heart className="w-6 h-6 text-white" />
+                <Utensils className="w-6 h-6 text-white" />
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gradient-primary">PetCare AI</h1>
+              <h1 className="text-xl font-bold text-gradient-primary">RestaurantOS</h1>
               <Badge variant="secondary" className="text-xs px-2 py-0.5 mt-0.5">
                 Beta
               </Badge>

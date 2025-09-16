@@ -6,16 +6,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Brain,
   Calendar,
-  MapPin,
+  CreditCard,
   Smartphone,
   Zap,
   TrendingUp,
   Bell,
-  Camera,
-  MessageCircle,
-  Shield
+  BarChart3,
+  Users,
+  Shield,
+  Clock,
+  Utensils
 } from "lucide-react";
-import analyticsImage from "@/assets/ai-analytics-preview.jpg";
+import analyticsImage from "@/assets/restaurant-dashboard.jpg";
 
 export const InteractiveFeatures = () => {
   const [activeFeature, setActiveFeature] = useState("analytics");
@@ -24,65 +26,65 @@ export const InteractiveFeatures = () => {
   const features = [
     {
       id: "analytics",
-      title: "AI Health Analytics",
-      description: "Advanced machine learning algorithms analyze your pet's health patterns",
+      title: "AI Revenue Analytics",
+      description: "Advanced machine learning algorithms analyze sales patterns and customer behavior",
       icon: Brain,
       color: "primary",
-      stats: ["Real-time analysis", "Predictive insights", "Health scoring"]
+      stats: ["Real-time insights", "Predictive analytics", "Revenue optimization"]
     },
     {
-      id: "monitoring",
-      title: "Smart Monitoring",
-      description: "24/7 health monitoring with instant alerts and recommendations",
-      icon: Smartphone,
+      id: "pos",
+      title: "Smart POS System",
+      description: "Lightning-fast order processing with intelligent menu recommendations",
+      icon: CreditCard,
       color: "secondary",
-      stats: ["Continuous tracking", "Smart alerts", "Behavior analysis"]
+      stats: ["Instant billing", "Smart ordering", "Payment integration"]
     },
     {
-      id: "booking",
-      title: "Instant Vet Booking",
-      description: "AI-powered vet recommendations and instant appointment booking",
-      icon: Calendar,
+      id: "management",
+      title: "Restaurant Management",
+      description: "Complete restaurant operations management with staff and inventory tracking",
+      icon: Utensils,
       color: "accent",
-      stats: ["Instant booking", "Best match vets", "Emergency support"]
+      stats: ["Table management", "Staff scheduling", "Inventory control"]
     }
   ];
 
   const aiFeatures = [
     {
-      icon: Camera,
-      title: "Visual Health Analysis",
-      description: "AI-powered photo analysis for instant health insights",
+      icon: BarChart3,
+      title: "Revenue Forecasting",
+      description: "AI-powered sales predictions and revenue optimization",
       interactive: true
     },
     {
-      icon: MessageCircle,
-      title: "Smart Pet Chat",
-      description: "AI assistant answers all your pet care questions",
+      icon: Users,
+      title: "Customer Analytics",
+      description: "Deep insights into customer behavior and preferences",
       interactive: true
     },
     {
       icon: TrendingUp,
-      title: "Predictive Health",
-      description: "Forecast potential health issues before they occur",
+      title: "Growth Insights",
+      description: "Identify growth opportunities and optimize operations",
       interactive: true
     },
     {
       icon: Bell,
-      title: "Smart Notifications",
-      description: "Personalized alerts for vaccines, checkups, and care",
+      title: "Smart Alerts",
+      description: "Intelligent notifications for inventory, staff, and operations",
       interactive: true
     },
     {
-      icon: MapPin,
-      title: "Location Services",
-      description: "Find nearby emergency vets and pet services instantly",
+      icon: Clock,
+      title: "Order Optimization",
+      description: "Reduce wait times with AI-powered kitchen management",
       interactive: true
     },
     {
       icon: Shield,
-      title: "Health Insurance",
-      description: "AI-optimized insurance recommendations and claims",
+      title: "Fraud Protection",
+      description: "Advanced security and fraud detection for transactions",
       interactive: true
     }
   ];
@@ -98,10 +100,10 @@ export const InteractiveFeatures = () => {
           </Badge>
           <h2 className="text-4xl lg:text-6xl font-bold">
             Experience the
-            <span className="block text-gradient-primary">Future of Pet Care</span>
+            <span className="block text-gradient-primary">Future of Restaurant Tech</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cutting-edge AI technology meets intuitive design to revolutionize how you care for your beloved pets
+            Cutting-edge AI technology meets intuitive design to revolutionize restaurant operations and maximize profits
           </p>
         </div>
 
@@ -153,7 +155,7 @@ export const InteractiveFeatures = () => {
                   <div className="relative overflow-hidden rounded-3xl">
                     <img 
                       src={analyticsImage} 
-                      alt="AI analytics dashboard preview"
+                      alt="Restaurant analytics dashboard preview"
                       className="w-full h-auto transform transition-all duration-500 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
@@ -161,7 +163,7 @@ export const InteractiveFeatures = () => {
                   
                   {/* Floating Interactive Elements */}
                   <div className="absolute -top-4 -right-4 card-glass p-4 animate-pulse-glow">
-                    <div className="text-sm font-semibold text-gradient-primary">Live Analytics</div>
+                    <div className="text-sm font-semibold text-gradient-primary">Live Restaurant Analytics</div>
                   </div>
                 </div>
               </div>
@@ -172,7 +174,7 @@ export const InteractiveFeatures = () => {
         {/* AI Features Grid */}
         <div className="space-y-8">
           <h3 className="text-3xl font-bold text-center">
-            Powered by <span className="text-gradient-primary">Advanced AI</span>
+            Powered by <span className="text-gradient-primary">Restaurant AI</span>
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

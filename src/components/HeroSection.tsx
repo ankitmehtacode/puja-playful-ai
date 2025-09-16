@@ -4,15 +4,17 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Brain, 
-  Heart, 
+  TrendingUp, 
   Shield, 
   Sparkles, 
   ArrowRight, 
   Play,
-  Stethoscope,
-  Activity
+  BarChart3,
+  Clock,
+  Users,
+  Utensils
 } from "lucide-react";
-import heroImage from "@/assets/hero-pet-ai.jpg";
+import heroImage from "@/assets/restaurant-hero.jpg";
 
 export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,30 +37,30 @@ export const HeroSection = () => {
             {/* Badge */}
             <Badge className="bg-gradient-to-r from-primary/20 to-secondary/20 text-primary border-primary/30 px-4 py-2 text-sm font-medium backdrop-blur-sm">
               <Sparkles className="w-4 h-4 mr-2" />
-              AI-Powered Pet Care Revolution
+              Next-Gen Restaurant Management Platform
             </Badge>
 
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Smart Pet Care
+                Smart Restaurant
                 <span className="block text-gradient-primary">
-                  Powered by AI
+                  Management
                 </span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-                Transform your pet's health journey with cutting-edge AI analytics, 
-                real-time monitoring, and personalized care recommendations.
+                Revolutionary POS system with AI-powered analytics, real-time insights, 
+                and seamless operations that outperform traditional restaurant management.
               </p>
             </div>
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Brain, label: "AI Health Analytics", color: "text-primary" },
-                { icon: Heart, label: "24/7 Monitoring", color: "text-secondary" },
-                { icon: Shield, label: "Preventive Care", color: "text-accent" },
-                { icon: Stethoscope, label: "Vet Network", color: "text-primary" }
+                { icon: Brain, label: "AI Analytics", color: "text-primary" },
+                { icon: TrendingUp, label: "Revenue Growth", color: "text-secondary" },
+                { icon: Users, label: "Customer Insights", color: "text-accent" },
+                { icon: BarChart3, label: "Real-time Reports", color: "text-primary" }
               ].map((feature, index) => (
                 <Card key={index} className="card-glass p-4 text-center transform transition-all duration-300 hover:scale-105" style={{ animationDelay: `${index * 0.1}s` }}>
                   <feature.icon className={`w-8 h-8 mx-auto mb-2 ${feature.color}`} />
@@ -92,9 +94,9 @@ export const HeroSection = () => {
             {/* Stats */}
             <div className="flex gap-8 pt-4">
               {[
-                { value: "10K+", label: "Happy Pets" },
-                { value: "99.9%", label: "Accuracy" },
-                { value: "24/7", label: "Monitoring" }
+                { value: "500+", label: "Restaurants" },
+                { value: "99.9%", label: "Uptime" },
+                { value: "24/7", label: "Support" }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-2xl font-bold text-gradient-primary">{stat.value}</div>
@@ -109,27 +111,27 @@ export const HeroSection = () => {
             <div className="relative">
               <img 
                 src={heroImage} 
-                alt="AI-powered pet care dashboard with cute golden retriever"
+                alt="AI-powered restaurant management dashboard with modern POS interface"
                 className="w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105"
               />
               
               {/* Floating Analytics Cards */}
               <Card className="absolute -top-4 -left-4 card-glass p-4 float-animation">
                 <div className="flex items-center gap-3">
-                  <Activity className="w-6 h-6 text-primary" />
+                  <BarChart3 className="w-6 h-6 text-primary" />
                   <div>
-                    <div className="text-sm font-semibold">Health Score</div>
-                    <div className="text-lg font-bold text-gradient-primary">98%</div>
+                    <div className="text-sm font-semibold">Daily Revenue</div>
+                    <div className="text-lg font-bold text-gradient-primary">₹45,280</div>
                   </div>
                 </div>
               </Card>
 
               <Card className="absolute -bottom-4 -right-4 card-glass p-4 float-animation" style={{ animationDelay: "1s" }}>
                 <div className="flex items-center gap-3">
-                  <Heart className="w-6 h-6 text-secondary" />
+                  <Clock className="w-6 h-6 text-secondary" />
                   <div>
-                    <div className="text-sm font-semibold">Heart Rate</div>
-                    <div className="text-lg font-bold text-gradient-secondary">Normal</div>
+                    <div className="text-sm font-semibold">Avg. Order Time</div>
+                    <div className="text-lg font-bold text-gradient-secondary">8 min</div>
                   </div>
                 </div>
               </Card>
