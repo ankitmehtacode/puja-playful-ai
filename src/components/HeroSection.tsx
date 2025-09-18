@@ -43,14 +43,14 @@ export const HeroSection = () => {
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Smart Restaurant
+                Where Culinary
                 <span className="block text-gradient-primary">
-                  Management
+                  Excellence Flows
                 </span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl">
-                Revolutionary POS system with AI-powered analytics, real-time insights, 
-                and seamless operations that outperform traditional restaurant management.
+                FlowChef Pro transforms restaurant operations with AI-driven insights, 
+                seamless kitchen workflows, and intelligent inventory management.
               </p>
             </div>
 

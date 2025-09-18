@@ -17,6 +17,7 @@ import {
   Clock,
   Utensils
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import analyticsImage from "@/assets/restaurant-dashboard.jpg";
 
 export const InteractiveFeatures = () => {
@@ -145,10 +146,12 @@ export const InteractiveFeatures = () => {
                     ))}
                   </div>
 
-                  <Button className="btn-primary">
-                    Try {feature.title}
-                    <feature.icon className="w-5 h-5 ml-2" />
-                  </Button>
+                  <Link to={feature.title.includes('Analytics') ? '/inventory' : feature.title.includes('POS') ? '/kitchen' : '/'}>
+                    <Button className="btn-primary hover:scale-105 transition-all duration-500">
+                      Explore {feature.title}
+                      <feature.icon className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
                 </div>
 
                 <div className="relative">
@@ -204,14 +207,16 @@ export const InteractiveFeatures = () => {
                     <p className="text-muted-foreground text-sm">{feature.description}</p>
                   </div>
 
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="w-full justify-start text-primary hover:bg-primary/10"
-                  >
-                    Try Feature
-                    <Zap className="w-4 h-4 ml-2" />
-                  </Button>
+                  <Link to={feature.title.includes('Kitchen') || feature.title.includes('Order') ? '/kitchen' : '/inventory'}>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="w-full justify-start text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-500"
+                    >
+                      Explore Feature
+                      <Zap className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             ))}

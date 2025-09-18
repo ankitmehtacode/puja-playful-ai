@@ -16,6 +16,7 @@ import {
   Utensils,
   BarChart3
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const InteractiveDemo = () => {
   const [activeMetric, setActiveMetric] = useState("revenue");
@@ -231,17 +232,21 @@ export const InteractiveDemo = () => {
               <Card className="card-premium p-6">
                 <h3 className="text-lg font-semibold mb-4">Recommended Actions</h3>
                 <div className="space-y-3">
-                  <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Utensils className="w-4 h-4 mr-2" />
-                    Update Menu Items
-                  </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Users className="w-4 h-4 mr-2" />
-                    Staff Performance
-                  </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start">
+                  <Link to="/kitchen" className="block">
+                    <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
+                      <Utensils className="w-4 h-4 mr-2" />
+                      Kitchen Operations
+                    </Button>
+                  </Link>
+                  <Link to="/inventory" className="block">
+                    <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
+                      <Users className="w-4 h-4 mr-2" />
+                      Smart Inventory
+                    </Button>
+                  </Link>
+                  <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
                     <BarChart3 className="w-4 h-4 mr-2" />
-                    Generate Report
+                    Analytics Hub
                   </Button>
                 </div>
               </Card>
