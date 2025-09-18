@@ -50,10 +50,8 @@ export const Header = () => {
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gradient-primary">FlowChef Pro</h1>
-              <Badge variant="secondary" className="text-xs px-2 py-0.5 mt-0.5">
-                Beta
-              </Badge>
+              <h1 className="text-xl font-bold text-foreground">Kitchen</h1>
+              <p className="text-xs text-muted-foreground mt-0.5">Restaurant Management</p>
             </div>
           </div>
 

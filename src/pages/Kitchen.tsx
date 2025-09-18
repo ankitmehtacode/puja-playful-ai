@@ -37,84 +37,90 @@ const Kitchen = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-gradient-primary">Kitchen Command Center</h1>
-            <p className="text-muted-foreground mt-2">Real-time order management and kitchen operations</p>
+            <h1 className="text-3xl font-light text-foreground">Kitchen</h1>
+            <p className="text-muted-foreground mt-1 font-light">Active orders and kitchen operations</p>
           </div>
           <Link to="/">
-            <Button variant="outline" className="btn-glass">
-              ← Back to Dashboard
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              ← Dashboard
             </Button>
           </Link>
         </div>
 
-        {/* Kitchen Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Active Orders</CardTitle>
-              <Clock className="h-4 w-4 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <Card className="p-6 border border-border/50 hover:border-border transition-colors">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-0">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Active Orders</CardTitle>
+              <Clock className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-primary">12</div>
-              <p className="text-xs text-muted-foreground">+2 from last hour</p>
+            <CardContent className="p-0 pt-4">
+              <div className="text-2xl font-semibold text-foreground">12</div>
+              <p className="text-xs text-muted-foreground">2 new in last hour</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Avg Prep Time</CardTitle>
-              <TrendingUp className="h-4 w-4 text-accent" />
+          <Card className="p-6 border border-border/50 hover:border-border transition-colors">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-0">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Prep Time</CardTitle>
+              <TrendingUp className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-accent">8.5 min</div>
-              <p className="text-xs text-muted-foreground">-1.2 min improved</p>
+            <CardContent className="p-0 pt-4">
+              <div className="text-2xl font-semibold text-foreground">8.5 min</div>
+              <p className="text-xs text-muted-foreground">Average today</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Staff On Duty</CardTitle>
-              <Users className="h-4 w-4 text-secondary" />
+          <Card className="p-6 border border-border/50 hover:border-border transition-colors">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-0">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Staff</CardTitle>
+              <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-secondary">8</div>
-              <p className="text-xs text-muted-foreground">Full capacity</p>
+            <CardContent className="p-0 pt-4">
+              <div className="text-2xl font-semibold text-foreground">8</div>
+              <p className="text-xs text-muted-foreground">On duty</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Order Accuracy</CardTitle>
-              <CheckCircle className="h-4 w-4 text-accent" />
+          <Card className="p-6 border border-border/50 hover:border-border transition-colors">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-0">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Quality</CardTitle>
+              <CheckCircle className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-accent">98.5%</div>
-              <p className="text-xs text-muted-foreground">Excellent performance</p>
+            <CardContent className="p-0 pt-4">
+              <div className="text-2xl font-semibold text-foreground">98%</div>
+              <p className="text-xs text-muted-foreground">Order accuracy</p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Active Orders */}
-        <Card className="card-glass">
-          <CardHeader>
-            <CardTitle className="text-2xl text-gradient-primary">Active Orders Queue</CardTitle>
-            <CardDescription>Live kitchen orders with real-time status updates</CardDescription>
+        <Card className="border border-border/50">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl font-medium text-foreground">Orders</CardTitle>
+            <CardDescription className="text-muted-foreground">Kitchen queue and order status</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4">
+            <div className="space-y-4">
               {orders.map((order) => (
-                <div key={order.id} className="border border-border/50 rounded-xl p-4 hover:bg-card/50 transition-all duration-300 hover:scale-[1.02]">
+                <div key={order.id} className="border border-border/50 rounded-xl p-4 hover:bg-muted/30 transition-colors">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
-                      <Badge variant="outline" className="font-mono">{order.id}</Badge>
-                      <Badge className={getPriorityColor(order.priority)}>
-                        {order.priority} priority
-                      </Badge>
+                      <span className="font-mono text-sm text-muted-foreground">{order.id}</span>
+                      <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${
+                        order.priority === 'high' ? 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400' :
+                        order.priority === 'medium' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400' :
+                        'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
+                      }`}>
+                        {order.priority}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Badge className={getStatusColor(order.status)}>
+                    <div className="flex items-center gap-3 text-right">
+                      <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${
+                        order.status === 'ready' ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400' :
+                        order.status === 'cooking' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400' :
+                        'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400'
+                      }`}>
                         {order.status}
-                      </Badge>
+                      </span>
                       <span className="text-sm text-muted-foreground">Table {order.table}</span>
                     </div>
                   </div>
@@ -122,27 +128,27 @@ const Kitchen = () => {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex flex-wrap gap-2">
                       {order.items.map((item, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
+                        <span key={idx} className="px-2 py-1 bg-muted/50 rounded-md text-xs text-foreground">
                           {item}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span className="font-semibold text-primary">{order.time}</span>
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <Clock className="h-4 w-4 text-muted-foreground" />
+                      <span>{order.time}</span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
                     <div className="flex-1">
-                      <Progress value={order.status === "ready" ? 100 : order.status === "cooking" ? 70 : 30} className="h-2" />
+                      <Progress value={order.status === "ready" ? 100 : order.status === "cooking" ? 70 : 30} className="h-1.5" />
                     </div>
                     <div className="flex gap-2">
-                      <Button size="sm" variant="outline" className="hover:scale-105 transition-transform">
-                        Update Status
+                      <Button size="sm" variant="outline" className="text-xs h-8 px-3 hover:bg-muted transition-colors">
+                        Update
                       </Button>
-                      <Button size="sm" className="btn-primary hover:scale-105 transition-transform">
-                        Mark Ready
+                      <Button size="sm" className="text-xs h-8 px-3 bg-foreground text-background hover:bg-foreground/90 transition-colors">
+                        Ready
                       </Button>
                     </div>
                   </div>
