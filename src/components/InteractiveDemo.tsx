@@ -91,40 +91,39 @@ export const InteractiveDemo = () => {
     <section className="py-24 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <Badge className="bg-gradient-to-r from-primary/20 to-secondary/20 text-primary border-primary/30 px-4 py-2">
-            <Brain className="w-4 h-4 mr-2" />
-            Live AI Demo
+          <Badge className="border border-border/50 text-foreground px-4 py-2">
+            Live Dashboard
           </Badge>
           <h2 className="text-4xl lg:text-6xl font-bold">
-            See Restaurant AI in
-            <span className="block text-gradient-primary">Real Action</span>
+            Real-time restaurant
+            <span className="block">performance</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Watch how our AI analyzes restaurant data in real-time and provides actionable business insights
+            Monitor your restaurant's key metrics and get insights to improve operations
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Health Metrics Dashboard */}
+            {/* Performance Dashboard */}
             <div className="lg:col-span-2 space-y-6">
-              <Card className="card-premium p-6">
+              <Card className="border border-border/50 p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-semibold">Restaurant Analytics Dashboard</h3>
+                  <h3 className="text-xl font-semibold">Performance Overview</h3>
                   <Button 
                     onClick={startAnalysis}
                     disabled={isAnalyzing}
-                    className="btn-primary"
+                    variant="outline"
                   >
                     {isAnalyzing ? (
                       <>
-                        <Zap className="w-4 h-4 mr-2 animate-spin" />
-                        Analyzing...
+                        <BarChart3 className="w-4 h-4 mr-2 animate-spin" />
+                        Updating...
                       </>
                     ) : (
                       <>
-                        <Brain className="w-4 h-4 mr-2" />
-                        Run AI Analysis
+                        <BarChart3 className="w-4 h-4 mr-2" />
+                        Refresh Data
                       </>
                     )}
                   </Button>
@@ -158,23 +157,23 @@ export const InteractiveDemo = () => {
                   ))}
                 </div>
 
-                {/* Analysis Progress */}
+                {/* Update Progress */}
                 {isAnalyzing && (
                   <div className="space-y-4 p-4 bg-muted/50 rounded-xl">
                     <div className="flex items-center gap-3">
-                      <BarChart3 className="w-5 h-5 text-primary animate-pulse" />
-                      <span className="text-sm font-medium">AI Analysis in Progress...</span>
+                      <BarChart3 className="w-5 h-5 text-foreground animate-pulse" />
+                      <span className="text-sm font-medium">Refreshing data...</span>
                     </div>
                     <Progress value={33} className="h-2" />
                     <div className="text-xs text-muted-foreground">
-                      Processing sales patterns and generating business insights...
+                      Loading latest performance metrics...
                     </div>
                   </div>
                 )}
               </Card>
 
               {/* Selected Metric Detail */}
-              <Card className="card-premium p-6">
+              <Card className="border border-border/50 p-6">
                 <h4 className="text-lg font-semibold mb-4">
                   {restaurantMetrics.find(m => m.id === activeMetric)?.label} Trends
                 </h4>
@@ -187,12 +186,12 @@ export const InteractiveDemo = () => {
               </Card>
             </div>
 
-            {/* AI Insights Panel */}
+            {/* Insights Panel */}
             <div className="space-y-6">
-              <Card className="card-premium p-6">
+              <Card className="border border-border/50 p-6">
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Brain className="w-5 h-5 text-primary" />
-                  AI Insights
+                  <TrendingUp className="w-5 h-5 text-foreground" />
+                  Insights
                 </h3>
                 
                 <div className="space-y-4">
@@ -229,24 +228,24 @@ export const InteractiveDemo = () => {
               </Card>
 
               {/* Quick Actions */}
-              <Card className="card-premium p-6">
-                <h3 className="text-lg font-semibold mb-4">Recommended Actions</h3>
+              <Card className="border border-border/50 p-6">
+                <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
                 <div className="space-y-3">
                   <Link to="/kitchen" className="block">
-                    <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
+                    <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
                       <Utensils className="w-4 h-4 mr-2" />
-                      Kitchen Operations
+                      Kitchen
                     </Button>
                   </Link>
                   <Link to="/inventory" className="block">
-                    <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
+                    <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
                       <Users className="w-4 h-4 mr-2" />
-                      Smart Inventory
+                      Inventory
                     </Button>
                   </Link>
-                  <Button variant="outline" size="sm" className="w-full justify-start hover:scale-105 transition-all duration-500">
+                  <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
                     <BarChart3 className="w-4 h-4 mr-2" />
-                    Analytics Hub
+                    Analytics
                   </Button>
                 </div>
               </Card>

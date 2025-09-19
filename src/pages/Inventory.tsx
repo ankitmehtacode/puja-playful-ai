@@ -44,8 +44,8 @@ const Inventory = () => {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-gradient-primary">Smart Inventory Hub</h1>
-            <p className="text-muted-foreground mt-2">AI-powered inventory tracking and automated reordering</p>
+            <h1 className="text-4xl font-bold">Inventory</h1>
+            <p className="text-muted-foreground mt-2">Track stock levels and manage orders</p>
           </div>
           <div className="flex gap-3">
             <Link to="/">
@@ -62,77 +62,77 @@ const Inventory = () => {
 
         {/* Inventory Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
+          <Card className="border border-border/50 hover:border-border transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Items</CardTitle>
-              <Package className="h-4 w-4 text-primary" />
+              <CardTitle className="text-sm font-medium">Items</CardTitle>
+              <Package className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-primary">156</div>
-              <p className="text-xs text-muted-foreground">+8 new items</p>
+              <div className="text-2xl font-bold">156</div>
+              <p className="text-xs text-muted-foreground">+8 this week</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
+          <Card className="border border-border/50 hover:border-border transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Low Stock Alert</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-destructive" />
+              <CardTitle className="text-sm font-medium">Low Stock</CardTitle>
+              <AlertTriangle className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-destructive">3</div>
-              <p className="text-xs text-muted-foreground">Requires attention</p>
+              <div className="text-2xl font-bold">3</div>
+              <p className="text-xs text-muted-foreground">Need reorder</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
+          <Card className="border border-border/50 hover:border-border transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Value</CardTitle>
-              <TrendingDown className="h-4 w-4 text-accent" />
+              <TrendingDown className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-accent">₹2.4L</div>
-              <p className="text-xs text-muted-foreground">Current inventory</p>
+              <div className="text-2xl font-bold">₹2.4L</div>
+              <p className="text-xs text-muted-foreground">Current stock</p>
             </CardContent>
           </Card>
 
-          <Card className="card-premium hover:scale-105 transition-all duration-300">
+          <Card className="border border-border/50 hover:border-border transition-colors">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Efficiency</CardTitle>
-              <Package className="h-4 w-4 text-secondary" />
+              <Package className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-secondary">94%</div>
-              <p className="text-xs text-muted-foreground">Stock optimization</p>
+              <div className="text-2xl font-bold">94%</div>
+              <p className="text-xs text-muted-foreground">Stock levels</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Search and Filters */}
-        <Card className="card-glass">
+        <Card className="border border-border/50">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input 
-                  placeholder="Search inventory items..." 
-                  className="pl-10 bg-background/50 border-border/50 focus:border-primary transition-colors"
+                  placeholder="Search items..." 
+                  className="pl-10 border-border/50 focus:border-primary transition-colors"
                 />
               </div>
-              <Button variant="outline" className="hover:scale-105 transition-transform">
-                Filter by Category
+              <Button variant="outline">
+                Category
               </Button>
-              <Button variant="outline" className="hover:scale-105 transition-transform">
-                Sort by Stock Level
+              <Button variant="outline">
+                Stock Level
               </Button>
             </div>
           </CardContent>
         </Card>
 
         {/* Inventory List */}
-        <Card className="card-glass">
+        <Card className="border border-border/50">
           <CardHeader>
-            <CardTitle className="text-2xl text-gradient-primary">Current Inventory</CardTitle>
-            <CardDescription>Real-time stock levels with intelligent reorder suggestions</CardDescription>
+            <CardTitle className="text-2xl">Stock Status</CardTitle>
+            <CardDescription>Current inventory levels and reorder points</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">

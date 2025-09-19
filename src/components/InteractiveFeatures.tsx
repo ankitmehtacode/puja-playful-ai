@@ -27,65 +27,65 @@ export const InteractiveFeatures = () => {
   const features = [
     {
       id: "analytics",
-      title: "AI Revenue Analytics",
-      description: "Advanced machine learning algorithms analyze sales patterns and customer behavior",
-      icon: Brain,
+      title: "Revenue Analytics",
+      description: "Track sales performance and identify growth opportunities",
+      icon: BarChart3,
       color: "primary",
-      stats: ["Real-time insights", "Predictive analytics", "Revenue optimization"]
+      stats: ["Sales tracking", "Performance insights", "Growth metrics"]
     },
     {
       id: "pos",
-      title: "Smart POS System",
-      description: "Lightning-fast order processing with intelligent menu recommendations",
+      title: "Point of Sale",
+      description: "Fast order processing with integrated payment solutions",
       icon: CreditCard,
       color: "secondary",
-      stats: ["Instant billing", "Smart ordering", "Payment integration"]
+      stats: ["Quick billing", "Multiple payments", "Order tracking"]
     },
     {
       id: "management",
-      title: "Restaurant Management",
-      description: "Complete restaurant operations management with staff and inventory tracking",
+      title: "Operations",
+      description: "Manage all aspects of your restaurant from one platform",
       icon: Utensils,
       color: "accent",
-      stats: ["Table management", "Staff scheduling", "Inventory control"]
+      stats: ["Table management", "Staff coordination", "Inventory control"]
     }
   ];
 
-  const aiFeatures = [
+  const features_grid = [
     {
       icon: BarChart3,
-      title: "Revenue Forecasting",
-      description: "AI-powered sales predictions and revenue optimization",
+      title: "Sales Reports",
+      description: "Detailed analytics and performance reports",
       interactive: true
     },
     {
       icon: Users,
-      title: "Customer Analytics",
-      description: "Deep insights into customer behavior and preferences",
+      title: "Customer Insights",
+      description: "Track customer preferences and order history",
       interactive: true
     },
     {
       icon: TrendingUp,
-      title: "Growth Insights",
-      description: "Identify growth opportunities and optimize operations",
+      title: "Growth Tracking",
+      description: "Monitor business growth and key metrics",
       interactive: true
     },
     {
       icon: Bell,
-      title: "Smart Alerts",
-      description: "Intelligent notifications for inventory, staff, and operations",
+      title: "Notifications",
+      description: "Stay updated with order and inventory alerts",
       interactive: true
     },
     {
       icon: Clock,
-      title: "Order Optimization",
-      description: "Reduce wait times with AI-powered kitchen management",
+      title: "Order Management",
+      description: "Optimize kitchen workflow and reduce wait times",
       interactive: true
     },
     {
       icon: Shield,
-      title: "Fraud Protection",
-      description: "Advanced security and fraud detection for transactions",
+      title: "Security",
+      description: "Secure payment processing and data protection",
       interactive: true
     }
   ];
@@ -95,16 +95,15 @@ export const InteractiveFeatures = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
-          <Badge className="bg-gradient-to-r from-primary/20 to-secondary/20 text-primary border-primary/30 px-4 py-2">
-            <Zap className="w-4 h-4 mr-2" />
-            Interactive Features
+          <Badge className="border border-border/50 text-foreground px-4 py-2">
+            Platform Features
           </Badge>
           <h2 className="text-4xl lg:text-6xl font-bold">
-            Experience the
-            <span className="block text-gradient-primary">Future of Restaurant Tech</span>
+            Everything your
+            <span className="block">restaurant needs</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cutting-edge AI technology meets intuitive design to revolutionize restaurant operations and maximize profits
+            Comprehensive tools designed to streamline operations and enhance customer experience
           </p>
         </div>
 
@@ -174,32 +173,27 @@ export const InteractiveFeatures = () => {
           ))}
         </Tabs>
 
-        {/* AI Features Grid */}
+        {/* Features Grid */}
         <div className="space-y-8">
           <h3 className="text-3xl font-bold text-center">
-            Powered by <span className="text-gradient-primary">Restaurant AI</span>
+            Complete <span className="text-muted-foreground">restaurant toolkit</span>
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiFeatures.map((feature, index) => (
+            {features_grid.map((feature, index) => (
               <Card 
                 key={index}
-                className={`card-premium cursor-pointer transition-all duration-300 ${
-                  hoveredCard === feature.title ? 'scale-105 shadow-2xl' : ''
+                className={`border border-border/50 p-6 cursor-pointer transition-all duration-300 ${
+                  hoveredCard === feature.title ? 'border-border shadow-md' : ''
                 }`}
                 onMouseEnter={() => setHoveredCard(feature.title)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20">
-                      <feature.icon className="w-6 h-6 text-primary" />
+                    <div className="p-3 rounded-lg bg-muted/50">
+                      <feature.icon className="w-6 h-6 text-foreground" />
                     </div>
-                    {feature.interactive && (
-                      <Badge variant="secondary" className="text-xs px-2 py-1">
-                        Interactive
-                      </Badge>
-                    )}
                   </div>
                   
                   <div>
@@ -211,10 +205,9 @@ export const InteractiveFeatures = () => {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="w-full justify-start text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-500"
+                      className="w-full justify-start hover:bg-muted/50 transition-colors"
                     >
-                      Explore Feature
-                      <Zap className="w-4 h-4 ml-2" />
+                      View Details
                     </Button>
                   </Link>
                 </div>
