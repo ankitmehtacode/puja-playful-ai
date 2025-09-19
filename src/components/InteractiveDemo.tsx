@@ -35,7 +35,7 @@ export const InteractiveDemo = () => {
       value: "₹45,280",
       status: "excellent",
       change: "+18%",
-      color: "text-green-500"
+      color: "text-emerald-600"
     },
     {
       id: "orders",
@@ -44,7 +44,7 @@ export const InteractiveDemo = () => {
       value: "156",
       status: "good",
       change: "+12%",
-      color: "text-blue-500"
+      color: "text-sky-600"
     },
     {
       id: "customers",
@@ -53,7 +53,7 @@ export const InteractiveDemo = () => {
       value: "89",
       status: "normal",
       change: "+5%",
-      color: "text-orange-500"
+      color: "text-amber-600"
     },
     {
       id: "wait-time",
@@ -62,7 +62,7 @@ export const InteractiveDemo = () => {
       value: "8 min",
       status: "optimal",
       change: "-15%",
-      color: "text-purple-500"
+      color: "text-violet-600"
     }
   ];
 
@@ -133,23 +133,26 @@ export const InteractiveDemo = () => {
                   {restaurantMetrics.map((metric) => (
                     <Card
                       key={metric.id}
-                      className={`p-4 cursor-pointer transition-all duration-300 border-2 ${
+                      className={`p-4 cursor-pointer transition-all duration-300 border ${
                         activeMetric === metric.id
-                          ? 'border-primary bg-primary/5 shadow-lg scale-105'
-                          : 'border-border hover:border-primary/50 hover:shadow-md'
+                          ? 'border-muted-foreground/30 bg-muted/20 shadow-sm'
+                          : 'border-border/30 hover:border-muted-foreground/20 hover:bg-muted/10'
                       }`}
                       onClick={() => setActiveMetric(metric.id)}
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <metric.icon className={`w-6 h-6 ${metric.color}`} />
-                        <Badge variant={metric.status === 'excellent' || metric.status === 'good' || metric.status === 'optimal' ? 'default' : 'secondary'}>
+                        <metric.icon className={`w-5 h-5 ${metric.color}`} />
+                        <Badge 
+                          variant="secondary" 
+                          className="bg-muted/50 text-muted-foreground border-0"
+                        >
                           {metric.status}
                         </Badge>
                       </div>
                       <div className="space-y-1">
                         <p className="text-sm font-medium text-muted-foreground">{metric.label}</p>
-                        <p className="text-2xl font-bold">{metric.value}</p>
-                        <p className={`text-sm ${metric.change.startsWith('+') ? 'text-green-600' : metric.change.startsWith('-') ? 'text-green-600' : 'text-muted-foreground'}`}>
+                        <p className="text-2xl font-bold text-foreground">{metric.value}</p>
+                        <p className={`text-sm ${metric.change.startsWith('+') ? 'text-emerald-600' : metric.change.startsWith('-') ? 'text-emerald-600' : 'text-muted-foreground'}`}>
                           {metric.change} from last week
                         </p>
                       </div>
@@ -177,10 +180,10 @@ export const InteractiveDemo = () => {
                 <h4 className="text-lg font-semibold mb-4">
                   {restaurantMetrics.find(m => m.id === activeMetric)?.label} Trends
                 </h4>
-                <div className="h-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center">
+                <div className="h-32 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/50 dark:to-slate-800/50 rounded-xl flex items-center justify-center border border-border/30">
                   <div className="text-center space-y-2">
-                    <TrendingUp className="w-8 h-8 text-primary mx-auto" />
-                    <p className="text-sm text-muted-foreground">Interactive Chart Visualization</p>
+                    <TrendingUp className="w-8 h-8 text-muted-foreground mx-auto" />
+                    <p className="text-sm text-muted-foreground">Performance Chart</p>
                   </div>
                 </div>
               </Card>
@@ -200,25 +203,25 @@ export const InteractiveDemo = () => {
                       key={index} 
                       className={`p-4 border-l-4 ${
                         insight.type === 'positive' 
-                          ? 'border-l-green-500 bg-green-50 dark:bg-green-950/20' 
-                          : 'border-l-orange-500 bg-orange-50 dark:bg-orange-950/20'
+                          ? 'border-l-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20' 
+                          : 'border-l-amber-400 bg-amber-50/50 dark:bg-amber-950/20'
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <insight.icon className={`w-5 h-5 mt-1 ${
-                          insight.type === 'positive' ? 'text-green-600' : 'text-orange-600'
+                          insight.type === 'positive' ? 'text-emerald-600' : 'text-amber-600'
                         }`} />
                         <div className="flex-1 space-y-2">
-                          <p className="text-sm">{insight.message}</p>
+                          <p className="text-sm text-foreground/90">{insight.message}</p>
                           <div className="flex items-center gap-2">
                             <span className="text-xs text-muted-foreground">Confidence:</span>
-                            <div className="flex-1 bg-background rounded-full h-1.5">
+                            <div className="flex-1 bg-muted/50 rounded-full h-1.5">
                               <div 
-                                className="h-full bg-primary rounded-full transition-all duration-1000"
+                                className="h-full bg-slate-400 rounded-full transition-all duration-1000"
                                 style={{ width: `${insight.confidence}%` }}
                               />
                             </div>
-                            <span className="text-xs font-medium">{insight.confidence}%</span>
+                            <span className="text-xs font-medium text-muted-foreground">{insight.confidence}%</span>
                           </div>
                         </div>
                       </div>
