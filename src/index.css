@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 233 45% 8%;
-    --foreground: 233 20% 98%;
+    --background: 220 25% 5%;
+    --foreground: 220 15% 95%;
 
-    --card: 233 40% 12%;
-    --card-foreground: 233 20% 98%;
+    --card: 220 20% 8%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 233 40% 12%;
-    --popover-foreground: 233 20% 98%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 15% 95%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 233 45% 8%;
-    --primary-glow: 180 100% 65%;
+    --primary: 200 15% 85%;
+    --primary-foreground: 220 25% 10%;
+    --primary-glow: 200 20% 90%;
 
-    --secondary: 300 85% 60%;
-    --secondary-foreground: 233 20% 98%;
+    --secondary: 210 15% 80%;
+    --secondary-foreground: 220 25% 10%;
 
-    --muted: 233 30% 16%;
-    --muted-foreground: 233 15% 70%;
+    --muted: 220 20% 12%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 300 85% 60%;
-    --accent-foreground: 233 20% 98%;
+    --accent: 210 15% 75%;
+    --accent-foreground: 220 25% 10%;
 
-    --destructive: 0 75% 55%;
-    --destructive-foreground: 233 20% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 220 15% 95%;
 
-    --border: 233 30% 22%;
-    --input: 233 30% 16%;
-    --ring: 180 100% 50%;
+    --border: 220 15% 15%;
+    --input: 220 20% 12%;
+    --ring: 200 15% 85%;
 
     --radius: 1.5rem;
 
-    /* Enchanted Gradients - Magical Nebula */
-    --gradient-nebula: linear-gradient(135deg, hsl(233 45% 8%), hsl(270 40% 12%), hsl(233 45% 8%));
-    --gradient-aurora: linear-gradient(135deg, hsl(300 85% 60% / 0.3), hsl(180 100% 50% / 0.3));
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%), hsl(180 100% 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(300 85% 60%), hsl(320 80% 65%));
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(300 85% 60% / 0.15), transparent 50%), radial-gradient(ellipse at bottom, hsl(180 100% 50% / 0.15), transparent 50%);
+    /* Subtle Dark Gradients */
+    --gradient-nebula: linear-gradient(135deg, hsl(220 25% 5%), hsl(230 20% 7%), hsl(220 25% 5%));
+    --gradient-aurora: linear-gradient(135deg, hsl(210 15% 80% / 0.05), hsl(200 15% 85% / 0.05));
+    --gradient-primary: linear-gradient(135deg, hsl(200 15% 85%), hsl(200 20% 90%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 15% 80%), hsl(205 18% 85%));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(210 15% 80% / 0.03), transparent 50%), radial-gradient(ellipse at bottom, hsl(200 15% 85% / 0.03), transparent 50%);
 
-    /* Magical Glows & Shadows */
-    --glow-primary: 0 0 40px hsl(180 100% 50% / 0.4), 0 0 80px hsl(180 100% 50% / 0.2);
-    --glow-secondary: 0 0 40px hsl(300 85% 60% / 0.4), 0 0 80px hsl(300 85% 60% / 0.2);
-    --glow-spell: 0 0 25px hsl(300 85% 60% / 0.35), 0 0 50px hsl(180 100% 50% / 0.25);
-    --shadow-enchanted: 0 25px 50px -12px rgba(224, 50, 224, 0.3);
-    --shadow-glass: 0 8px 32px rgba(0, 240, 255, 0.15);
+    /* Subtle Glows & Shadows */
+    --glow-primary: 0 0 20px hsl(200 15% 85% / 0.1), 0 0 40px hsl(200 15% 85% / 0.05);
+    --glow-secondary: 0 0 20px hsl(210 15% 80% / 0.1), 0 0 40px hsl(210 15% 80% / 0.05);
+    --glow-spell: 0 0 15px hsl(210 15% 80% / 0.1), 0 0 30px hsl(200 15% 85% / 0.08);
+    --shadow-enchanted: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-glass: 0 8px 32px rgba(255, 255, 255, 0.03);
 
     /* Magical Animations */
     --transition-smooth: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -75,48 +75,48 @@
   }
 
   .dark {
-    --background: 233 50% 6%;
-    --foreground: 233 20% 98%;
+    --background: 220 30% 4%;
+    --foreground: 220 15% 95%;
 
-    --card: 233 45% 10%;
-    --card-foreground: 233 20% 98%;
+    --card: 220 25% 7%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 233 45% 10%;
-    --popover-foreground: 233 20% 98%;
+    --popover: 220 25% 7%;
+    --popover-foreground: 220 15% 95%;
 
-    --primary: 180 100% 55%;
-    --primary-foreground: 233 50% 6%;
-    --primary-glow: 180 100% 70%;
+    --primary: 200 18% 88%;
+    --primary-foreground: 220 30% 8%;
+    --primary-glow: 200 22% 92%;
 
-    --secondary: 300 90% 65%;
-    --secondary-foreground: 233 20% 98%;
+    --secondary: 210 18% 85%;
+    --secondary-foreground: 220 30% 8%;
 
-    --muted: 233 35% 14%;
-    --muted-foreground: 233 20% 75%;
+    --muted: 220 25% 10%;
+    --muted-foreground: 220 12% 65%;
 
-    --accent: 300 90% 65%;
-    --accent-foreground: 233 20% 98%;
+    --accent: 210 18% 78%;
+    --accent-foreground: 220 30% 8%;
 
-    --destructive: 0 80% 60%;
-    --destructive-foreground: 233 20% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 220 15% 95%;
 
-    --border: 233 35% 20%;
-    --input: 233 35% 14%;
-    --ring: 180 100% 55%;
+    --border: 220 20% 12%;
+    --input: 220 25% 10%;
+    --ring: 200 18% 88%;
 
-    /* Enhanced Enchanted Gradients */
-    --gradient-nebula: linear-gradient(135deg, hsl(233 50% 6%), hsl(270 45% 10%), hsl(233 50% 6%));
-    --gradient-aurora: linear-gradient(135deg, hsl(300 90% 65% / 0.35), hsl(180 100% 55% / 0.35));
-    --gradient-primary: linear-gradient(135deg, hsl(180 100% 55%), hsl(180 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(300 90% 65%), hsl(320 85% 70%));
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(300 90% 65% / 0.18), transparent 50%), radial-gradient(ellipse at bottom, hsl(180 100% 55% / 0.18), transparent 50%);
+    /* Subtle Dark Gradients */
+    --gradient-nebula: linear-gradient(135deg, hsl(220 30% 4%), hsl(230 25% 6%), hsl(220 30% 4%));
+    --gradient-aurora: linear-gradient(135deg, hsl(210 18% 85% / 0.04), hsl(200 18% 88% / 0.04));
+    --gradient-primary: linear-gradient(135deg, hsl(200 18% 88%), hsl(200 22% 92%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 18% 85%), hsl(205 20% 88%));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(210 18% 85% / 0.02), transparent 50%), radial-gradient(ellipse at bottom, hsl(200 18% 88% / 0.02), transparent 50%);
 
-    --glow-primary: 0 0 45px hsl(180 100% 55% / 0.5), 0 0 90px hsl(180 100% 55% / 0.25);
-    --glow-secondary: 0 0 45px hsl(300 90% 65% / 0.5), 0 0 90px hsl(300 90% 65% / 0.25);
-    --glow-spell: 0 0 30px hsl(300 90% 65% / 0.4), 0 0 60px hsl(180 100% 55% / 0.3);
-    --shadow-enchanted: 0 25px 50px -12px rgba(224, 50, 224, 0.35);
-    --shadow-glass: 0 8px 32px rgba(0, 240, 255, 0.2);
+    --glow-primary: 0 0 20px hsl(200 18% 88% / 0.08), 0 0 40px hsl(200 18% 88% / 0.04);
+    --glow-secondary: 0 0 20px hsl(210 18% 85% / 0.08), 0 0 40px hsl(210 18% 85% / 0.04);
+    --glow-spell: 0 0 15px hsl(210 18% 85% / 0.08), 0 0 30px hsl(200 18% 88% / 0.06);
+    --shadow-enchanted: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    --shadow-glass: 0 8px 32px rgba(255, 255, 255, 0.02);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
