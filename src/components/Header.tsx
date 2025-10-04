@@ -40,18 +40,23 @@ export const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
+        <div className="flex items-center justify-between h-16 lg:h-24">
+          {/* Enchanted Logo */}
+          <div className="flex items-center space-x-4 group cursor-pointer">
             <div className="relative">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
-                <Utensils className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-3xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 shimmer">
+                <Utensils className="w-7 h-7 lg:w-8 lg:h-8 text-white drop-shadow-lg" />
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse" />
+              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full pulse-glow" 
+                   style={{ background: 'var(--gradient-primary)' }} />
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+                   style={{ boxShadow: 'var(--glow-spell)' }} />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Kitchen</h1>
-              <p className="text-xs text-muted-foreground mt-0.5">Restaurant Management</p>
+              <h1 className="text-2xl lg:text-3xl font-bold text-gradient-primary tracking-tight">
+                FlowChef Pro
+              </h1>
+              <p className="text-xs text-muted-foreground mt-0.5 hidden lg:block">Enchanted Kitchen Operations</p>
             </div>
           </div>
 

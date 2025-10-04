@@ -15,7 +15,8 @@ import {
   Users,
   Shield,
   Clock,
-  Utensils
+  Utensils,
+  Sparkles
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import analyticsImage from "@/assets/restaurant-dashboard.jpg";
@@ -91,32 +92,35 @@ export const InteractiveFeatures = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/20">
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
-          <Badge className="border border-border/50 text-foreground px-4 py-2">
-            Platform Features
+    <section className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-aurora)', opacity: 0.1 }} />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Enchanted Section Header */}
+        <div className="text-center mb-20 space-y-6">
+          <Badge className="border-2 border-secondary/50 px-6 py-3 backdrop-blur-md bg-secondary/10 shimmer">
+            <Sparkles className="w-4 h-4 mr-2 inline" />
+            Magical Capabilities
           </Badge>
-          <h2 className="text-4xl lg:text-6xl font-bold">
-            Everything your
-            <span className="block">restaurant needs</span>
+          <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
+            <span className="block text-gradient-secondary mb-4">Your Enchanted</span>
+            <span className="block text-gradient-primary">Kitchen Arsenal</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive tools designed to streamline operations and enhance customer experience
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
+            Every spell you need to orchestrate culinary excellence with effortless grace
           </p>
         </div>
 
-        {/* Interactive Tabs */}
-        <Tabs value={activeFeature} onValueChange={setActiveFeature} className="mb-16">
-          <TabsList className="grid w-full grid-cols-3 mb-12 bg-muted/50 backdrop-blur-sm p-2 rounded-2xl">
+        {/* Spell Selector Tabs */}
+        <Tabs value={activeFeature} onValueChange={setActiveFeature} className="mb-20">
+          <TabsList className="grid w-full grid-cols-3 mb-16 bg-card/50 backdrop-blur-lg p-3 rounded-3xl border-2 border-border/30">
             {features.map((feature) => (
               <TabsTrigger 
                 key={feature.id} 
                 value={feature.id}
-                className="data-[state=active]:bg-white data-[state=active]:shadow-lg rounded-xl transition-all duration-300"
+                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-white data-[state=active]:shadow-lg rounded-2xl transition-all duration-500 py-4 text-lg font-semibold"
               >
-                <feature.icon className="w-5 h-5 mr-2" />
+                <feature.icon className="w-6 h-6 mr-3" />
                 {feature.title}
               </TabsTrigger>
             ))}
@@ -173,45 +177,49 @@ export const InteractiveFeatures = () => {
           ))}
         </Tabs>
 
-        {/* Features Grid */}
-        <div className="space-y-8">
-          <h3 className="text-3xl font-bold text-center">
-            Complete <span className="text-muted-foreground">restaurant toolkit</span>
+        {/* Spell Cards Grid */}
+        <div className="space-y-12">
+          <h3 className="text-4xl lg:text-5xl font-bold text-center">
+            <span className="text-gradient-primary">Master the </span>
+            <span className="text-gradient-secondary">complete spellbook</span>
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features_grid.map((feature, index) => (
-              <Card 
+              <div 
                 key={index}
-                className={`border border-border/50 p-6 cursor-pointer transition-all duration-300 ${
-                  hoveredCard === feature.title ? 'border-border shadow-md' : ''
+                className={`spell-card cursor-pointer ${
+                  hoveredCard === feature.title ? 'scale-105' : ''
                 }`}
                 onMouseEnter={() => setHoveredCard(feature.title)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="space-y-4">
+                <div className="space-y-6 relative z-10">
                   <div className="flex items-center justify-between">
-                    <div className="p-3 rounded-lg bg-muted/50">
-                      <feature.icon className="w-6 h-6 text-foreground" />
+                    <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm transform transition-all duration-500 hover:scale-110 float-animation">
+                      <feature.icon className="w-8 h-8 text-primary" style={{ filter: 'drop-shadow(0 0 8px hsl(var(--primary)))' }} />
+                    </div>
+                    <div className="text-xs px-3 py-1 rounded-full bg-muted/50 text-muted-foreground">
+                      Active
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-semibold mb-2">{feature.title}</h4>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                    <h4 className="text-xl font-bold mb-3 text-gradient-primary">{feature.title}</h4>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
 
                   <Link to={feature.title.includes('Kitchen') || feature.title.includes('Order') ? '/kitchen' : '/inventory'}>
                     <Button 
                       variant="ghost" 
-                      size="sm" 
-                      className="w-full justify-start hover:bg-muted/50 transition-colors"
+                      className="w-full justify-start hover:bg-primary/10 transition-all duration-300 group"
                     >
-                      View Details
+                      <Sparkles className="w-4 h-4 mr-2 group-hover:animate-spin" />
+                      Cast Spell
                     </Button>
                   </Link>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>

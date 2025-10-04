@@ -88,18 +88,23 @@ export const InteractiveDemo = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-muted/20 to-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 space-y-4">
-          <Badge className="border border-border/50 text-foreground px-4 py-2">
-            Live Dashboard
+    <section className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute inset-0" style={{ 
+        background: 'radial-gradient(ellipse at center, hsl(300 90% 65% / 0.08), transparent 70%)'
+      }} />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-20 space-y-6">
+          <Badge className="border-2 border-primary/50 px-6 py-3 backdrop-blur-md bg-primary/10 pulse-glow">
+            <BarChart3 className="w-4 h-4 mr-2 inline animate-pulse" />
+            Live Crystal Ball
           </Badge>
-          <h2 className="text-4xl lg:text-6xl font-bold">
-            Real-time restaurant
-            <span className="block">performance</span>
+          <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
+            <span className="block text-gradient-primary mb-4">See the Future</span>
+            <span className="block text-gradient-secondary text-4xl lg:text-5xl font-light">in real-time clarity</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Monitor your restaurant's key metrics and get insights to improve operations
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
+            Your mystical dashboard reveals insights that feel like prophecy
           </p>
         </div>
 
@@ -107,53 +112,53 @@ export const InteractiveDemo = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Performance Dashboard */}
             <div className="lg:col-span-2 space-y-6">
-              <Card className="border border-border/50 p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-xl font-semibold">Performance Overview</h3>
+              <Card className="card-premium">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl font-bold text-gradient-primary">Performance Crystal</h3>
                   <Button 
                     onClick={startAnalysis}
                     disabled={isAnalyzing}
-                    variant="outline"
+                    className={isAnalyzing ? "btn-secondary" : "btn-glass"}
                   >
                     {isAnalyzing ? (
                       <>
-                        <BarChart3 className="w-4 h-4 mr-2 animate-spin" />
-                        Updating...
+                        <Zap className="w-5 h-5 mr-2 animate-spin" />
+                        Divining...
                       </>
                     ) : (
                       <>
-                        <BarChart3 className="w-4 h-4 mr-2" />
-                        Refresh Data
+                        <Zap className="w-5 h-5 mr-2" />
+                        Refresh Vision
                       </>
                     )}
                   </Button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="grid grid-cols-2 gap-6 mb-8">
                   {restaurantMetrics.map((metric) => (
                     <Card
                       key={metric.id}
-                      className={`p-4 cursor-pointer transition-all duration-300 border ${
+                      className={`spell-card p-6 cursor-pointer ${
                         activeMetric === metric.id
-                          ? 'border-muted-foreground/30 bg-muted/20 shadow-sm'
-                          : 'border-border/30 hover:border-muted-foreground/20 hover:bg-muted/10'
+                          ? 'border-primary/50 shadow-lg'
+                          : 'border-border/30'
                       }`}
                       onClick={() => setActiveMetric(metric.id)}
+                      style={activeMetric === metric.id ? { boxShadow: 'var(--glow-spell)' } : {}}
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <metric.icon className={`w-5 h-5 ${metric.color}`} />
+                      <div className="flex items-center justify-between mb-4 relative z-10">
+                        <metric.icon className={`w-7 h-7 ${metric.color}`} style={{ filter: `drop-shadow(0 0 6px hsl(var(--primary)))` }} />
                         <Badge 
-                          variant="secondary" 
-                          className="bg-muted/50 text-muted-foreground border-0"
+                          className="bg-muted/70 backdrop-blur-sm text-muted-foreground border-0 px-3 py-1"
                         >
                           {metric.status}
                         </Badge>
                       </div>
-                      <div className="space-y-1">
+                      <div className="space-y-2 relative z-10">
                         <p className="text-sm font-medium text-muted-foreground">{metric.label}</p>
-                        <p className="text-2xl font-bold text-foreground">{metric.value}</p>
-                        <p className={`text-sm ${metric.change.startsWith('+') ? 'text-emerald-600' : metric.change.startsWith('-') ? 'text-emerald-600' : 'text-muted-foreground'}`}>
-                          {metric.change} from last week
+                        <p className="text-3xl font-bold text-gradient-primary">{metric.value}</p>
+                        <p className="text-sm font-medium text-primary">
+                          {metric.change} enchantment
                         </p>
                       </div>
                     </Card>
@@ -175,80 +180,99 @@ export const InteractiveDemo = () => {
                 )}
               </Card>
 
-              {/* Selected Metric Detail */}
-              <Card className="border border-border/50 p-6">
-                <h4 className="text-lg font-semibold mb-4">
-                  {restaurantMetrics.find(m => m.id === activeMetric)?.label} Trends
+              {/* Enchanted Metric Visualization */}
+              <Card className="card-premium">
+                <h4 className="text-xl font-bold mb-6 text-gradient-secondary">
+                  {restaurantMetrics.find(m => m.id === activeMetric)?.label} Prophecy
                 </h4>
-                <div className="h-32 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-900/50 dark:to-slate-800/50 rounded-xl flex items-center justify-center border border-border/30">
-                  <div className="text-center space-y-2">
-                    <TrendingUp className="w-8 h-8 text-muted-foreground mx-auto" />
-                    <p className="text-sm text-muted-foreground">Performance Chart</p>
+                <div className="h-40 rounded-2xl flex items-center justify-center relative overflow-hidden" 
+                     style={{ background: 'var(--gradient-aurora)' }}>
+                  <div className="absolute inset-0 opacity-30" style={{ 
+                    background: 'radial-gradient(circle at center, hsl(var(--primary)) 0%, transparent 70%)',
+                    animation: 'pulse-glow 3s ease-in-out infinite'
+                  }} />
+                  <div className="text-center space-y-3 relative z-10">
+                    <TrendingUp className="w-12 h-12 text-primary mx-auto float-animation" style={{ filter: 'drop-shadow(0 0 10px hsl(var(--primary)))' }} />
+                    <p className="text-lg font-semibold text-foreground">Mystical Insights Loading...</p>
                   </div>
                 </div>
               </Card>
             </div>
 
-            {/* Insights Panel */}
-            <div className="space-y-6">
-              <Card className="border border-border/50 p-6">
-                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-foreground" />
-                  Insights
+            {/* Mystical Insights Panel */}
+            <div className="space-y-8">
+              <Card className="card-premium">
+                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <Brain className="w-7 h-7 text-primary shimmer" style={{ filter: 'drop-shadow(0 0 8px hsl(var(--primary)))' }} />
+                  <span className="text-gradient-primary">Mystical Visions</span>
                 </h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {aiInsights.map((insight, index) => (
-                    <Card 
+                    <div 
                       key={index} 
-                      className={`p-4 border-l-4 ${
+                      className={`spell-card p-6 border-l-4 ${
                         insight.type === 'positive' 
-                          ? 'border-l-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20' 
-                          : 'border-l-amber-400 bg-amber-50/50 dark:bg-amber-950/20'
+                          ? 'border-l-primary' 
+                          : 'border-l-secondary'
                       }`}
+                      style={{ 
+                        background: insight.type === 'positive' 
+                          ? 'linear-gradient(135deg, hsl(180 100% 50% / 0.05), transparent)' 
+                          : 'linear-gradient(135deg, hsl(300 90% 65% / 0.05), transparent)'
+                      }}
                     >
-                      <div className="flex items-start gap-3">
-                        <insight.icon className={`w-5 h-5 mt-1 ${
-                          insight.type === 'positive' ? 'text-emerald-600' : 'text-amber-600'
-                        }`} />
-                        <div className="flex-1 space-y-2">
-                          <p className="text-sm text-foreground/90">{insight.message}</p>
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs text-muted-foreground">Confidence:</span>
-                            <div className="flex-1 bg-muted/50 rounded-full h-1.5">
+                      <div className="flex items-start gap-4">
+                        <insight.icon className={`w-7 h-7 mt-1 float-animation ${
+                          insight.type === 'positive' ? 'text-primary' : 'text-secondary'
+                        }`} style={{ 
+                          filter: insight.type === 'positive' 
+                            ? 'drop-shadow(0 0 6px hsl(var(--primary)))' 
+                            : 'drop-shadow(0 0 6px hsl(var(--secondary)))'
+                        }} />
+                        <div className="flex-1 space-y-4">
+                          <p className="text-base leading-relaxed text-foreground">{insight.message}</p>
+                          <div className="flex items-center gap-3">
+                            <span className="text-xs font-semibold text-muted-foreground tracking-wide">CERTAINTY:</span>
+                            <div className="flex-1 bg-muted/30 rounded-full h-2 overflow-hidden">
                               <div 
-                                className="h-full bg-slate-400 rounded-full transition-all duration-1000"
-                                style={{ width: `${insight.confidence}%` }}
+                                className={`h-full rounded-full transition-all duration-1000 ${
+                                  insight.type === 'positive' ? 'bg-gradient-to-r from-primary to-primary-glow' : 'bg-gradient-to-r from-secondary to-accent'
+                                }`}
+                                style={{ 
+                                  width: `${insight.confidence}%`,
+                                  boxShadow: insight.type === 'positive' ? 'var(--glow-primary)' : 'var(--glow-secondary)'
+                                }}
                               />
                             </div>
-                            <span className="text-xs font-medium text-muted-foreground">{insight.confidence}%</span>
+                            <span className="text-sm font-bold text-gradient-primary">{insight.confidence}%</span>
                           </div>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   ))}
                 </div>
               </Card>
 
-              {/* Quick Actions */}
-              <Card className="border border-border/50 p-6">
-                <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-                <div className="space-y-3">
+              {/* Enchanted Quick Spells */}
+              <Card className="card-premium">
+                <h3 className="text-xl font-bold mb-6 text-gradient-secondary">Quick Spells</h3>
+                <div className="space-y-4">
                   <Link to="/kitchen" className="block">
-                    <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
-                      <Utensils className="w-4 h-4 mr-2" />
-                      Kitchen
+                    <Button className="w-full justify-start btn-glass hover:scale-105 transition-all duration-300 group">
+                      <Utensils className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform" />
+                      <span className="font-semibold">Kitchen Portal</span>
                     </Button>
                   </Link>
                   <Link to="/inventory" className="block">
-                    <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
-                      <Users className="w-4 h-4 mr-2" />
-                      Inventory
+                    <Button className="w-full justify-start btn-glass hover:scale-105 transition-all duration-300 group">
+                      <Users className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
+                      <span className="font-semibold">Inventory Realm</span>
                     </Button>
                   </Link>
-                  <Button variant="outline" size="sm" className="w-full justify-start transition-colors">
-                    <BarChart3 className="w-4 h-4 mr-2" />
-                    Analytics
+                  <Button className="w-full justify-start btn-glass hover:scale-105 transition-all duration-300 group">
+                    <BarChart3 className="w-5 h-5 mr-3 group-hover:animate-pulse" />
+                    <span className="font-semibold">Analytics Vision</span>
                   </Button>
                 </div>
               </Card>

@@ -21,34 +21,54 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }}>
-          <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+      {/* Enchanted Nebula Background */}
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-nebula)' }}>
+        <div className="absolute inset-0" style={{ 
+          background: 'var(--gradient-hero)',
+          animation: 'nebula-drift 15s ease-in-out infinite',
+          backgroundSize: '200% 200%'
+        }} />
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-20 left-20 w-96 h-96 rounded-full blur-3xl animate-float" 
+               style={{ background: 'radial-gradient(circle, hsl(300 90% 65% / 0.6), transparent)' }} />
+          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] rounded-full blur-3xl animate-float" 
+               style={{ 
+                 background: 'radial-gradient(circle, hsl(180 100% 55% / 0.6), transparent)',
+                 animationDelay: '1.5s' 
+               }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-3xl animate-float" 
+               style={{ 
+                 background: 'radial-gradient(circle, hsl(300 90% 65% / 0.5), hsl(180 100% 55% / 0.3), transparent)',
+                 animationDelay: '3s' 
+               }} />
         </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <div className="space-y-8 animate-slide-up">
-            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-muted/50 text-sm text-muted-foreground mb-6">
-              Restaurant Management
-            </div>
+          {/* Enchanted Content */}
+          <div className="space-y-10 animate-slide-up">
+            <Badge className="border-2 border-primary/50 px-6 py-3 backdrop-blur-md bg-primary/10 shimmer">
+              <Sparkles className="w-4 h-4 mr-2 inline" />
+              The Enchanted Kitchen
+            </Badge>
 
-            {/* Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-light leading-tight text-foreground">
-                Kitchen
-                <span className="block font-medium">
-                  Operations
+            {/* Magical Headline */}
+            <div className="space-y-8">
+              <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
+                <span className="block text-gradient-primary mb-4" style={{ 
+                  textShadow: 'var(--glow-primary)',
+                  animation: 'pulse-glow 4s ease-in-out infinite'
+                }}>
+                  FlowChef Pro
+                </span>
+                <span className="block text-4xl lg:text-5xl text-gradient-secondary font-light" 
+                      style={{ textShadow: 'var(--glow-secondary)' }}>
+                  Where Magic Meets Mastery
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl font-light">
-                Everything you need to run your kitchen smoothly. 
-                Orders, inventory, and team coordination in one place.
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
+                Step into the future of culinary operations. Experience real-time orchestration that feels like pure enchantment.
               </p>
             </div>
 
@@ -66,24 +86,24 @@ export const HeroSection = () => {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-6 mt-12">
               <Button 
                 size="lg" 
-                className="bg-foreground text-background hover:bg-foreground/90 rounded-2xl px-8 py-4 font-medium"
+                className="btn-primary"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                Get Started
-                <ArrowRight className={`w-5 h-5 ml-2 transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`} />
+                <Sparkles className="w-6 h-6 mr-3" />
+                Begin Your Journey
+                <ArrowRight className={`w-6 h-6 ml-3 transition-transform duration-500 ${isHovered ? 'translate-x-2' : ''}`} />
               </Button>
               
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="bg-transparent border-muted-foreground/20 hover:bg-muted/30 rounded-2xl px-8 py-4 font-medium"
+                className="btn-glass"
               >
-                <Play className="w-5 h-5 mr-2" />
-                Watch Demo
+                <Play className="w-6 h-6 mr-3" />
+                See the Magic
               </Button>
             </div>
 
