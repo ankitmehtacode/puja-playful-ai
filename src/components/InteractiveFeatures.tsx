@@ -19,7 +19,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import analyticsImage from "@/assets/restaurant-dashboard.jpg";
+import minimalAnalytics from "@/assets/minimal-analytics.jpg";
 
 export const InteractiveFeatures = () => {
   const [activeFeature, setActiveFeature] = useState("analytics");
@@ -160,7 +160,7 @@ export const InteractiveFeatures = () => {
                 <div className="relative">
                   <div className="relative overflow-hidden rounded-3xl">
                     <img 
-                      src={analyticsImage} 
+                      src={minimalAnalytics} 
                       alt="Restaurant analytics dashboard preview"
                       className="w-full h-auto transform transition-all duration-500 hover:scale-105"
                     />

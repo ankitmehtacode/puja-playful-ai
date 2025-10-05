@@ -14,7 +14,7 @@ import {
   Users,
   Utensils
 } from "lucide-react";
-import heroImage from "@/assets/restaurant-hero.jpg";
+import minimalDashboard from "@/assets/minimal-dashboard.jpg";
 
 export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -125,7 +125,7 @@ export const HeroSection = () => {
           <div className="relative animate-fade-in-scale" style={{ animationDelay: "0.3s" }}>
             <div className="relative">
               <img 
-                src={heroImage} 
+                src={minimalDashboard} 
                 alt="AI-powered restaurant management dashboard with modern POS interface"
                 className="w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105"
               />
