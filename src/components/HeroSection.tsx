@@ -142,21 +142,21 @@ export const HeroSection = () => {
                 className="w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105"
               />
               
-              <div className="absolute -top-6 -left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
+              <div className="absolute -top-6 -left-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500"></div>
                   <div>
-                    <div className="text-sm font-medium text-foreground">Today's Orders</div>
+                    <div className="text-sm font-medium text-muted-foreground">Today's Orders</div>
                     <div className="text-lg font-semibold text-foreground">127</div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
+              <div className="absolute -bottom-6 -right-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                   <div>
-                    <div className="text-sm font-medium text-foreground">Average Time</div>
+                    <div className="text-sm font-medium text-muted-foreground">Average Time</div>
                     <div className="text-lg font-semibold text-foreground">8 min</div>
                   </div>
                 </div>
