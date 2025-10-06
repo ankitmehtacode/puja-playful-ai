@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShapeBlur } from "@/components/ui/shape-blur";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -92,6 +93,17 @@ export const InteractiveDemo = () => {
       <div className="absolute inset-0" style={{ 
         background: 'radial-gradient(ellipse at center, hsl(300 90% 65% / 0.08), transparent 70%)'
       }} />
+      
+      {/* Shape Blur Background Effect */}
+      <div className="absolute inset-0 opacity-25">
+        <ShapeBlur 
+          shapeSize={1.6}
+          roundness={0.7}
+          borderSize={0.07}
+          circleSize={0.38}
+          circleEdge={0.7}
+        />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 space-y-6">

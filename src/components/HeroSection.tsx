@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShapeBlur } from "@/components/ui/shape-blur";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -41,6 +42,17 @@ export const HeroSection = () => {
                  background: 'radial-gradient(circle, hsl(300 90% 65% / 0.5), hsl(180 100% 55% / 0.3), transparent)',
                  animationDelay: '3s' 
                }} />
+        </div>
+        
+        {/* Shape Blur Effect */}
+        <div className="absolute inset-0 opacity-30">
+          <ShapeBlur 
+            shapeSize={1.5}
+            roundness={0.6}
+            borderSize={0.08}
+            circleSize={0.4}
+            circleEdge={0.8}
+          />
         </div>
       </div>
 

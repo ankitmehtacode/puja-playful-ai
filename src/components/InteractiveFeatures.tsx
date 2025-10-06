@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShapeBlur } from "@/components/ui/shape-blur";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -94,6 +95,17 @@ export const InteractiveFeatures = () => {
   return (
     <section className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0" style={{ background: 'var(--gradient-aurora)', opacity: 0.1 }} />
+      
+      {/* Shape Blur Background Effect */}
+      <div className="absolute inset-0 opacity-20">
+        <ShapeBlur 
+          shapeSize={1.8}
+          roundness={0.5}
+          borderSize={0.06}
+          circleSize={0.35}
+          circleEdge={0.6}
+        />
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Enchanted Section Header */}
