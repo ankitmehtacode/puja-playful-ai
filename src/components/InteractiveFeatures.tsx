@@ -113,12 +113,12 @@ export const InteractiveFeatures = () => {
 
         {/* Spell Selector Tabs */}
         <Tabs value={activeFeature} onValueChange={setActiveFeature} className="mb-20">
-          <TabsList className="grid w-full grid-cols-3 mb-16 bg-card/50 backdrop-blur-lg p-3 rounded-3xl border-2 border-border/30">
+          <TabsList className="grid w-full grid-cols-3 mb-16 bg-card/80 backdrop-blur-lg p-3 rounded-3xl border-2 border-border/30">
             {features.map((feature) => (
               <TabsTrigger 
                 key={feature.id} 
                 value={feature.id}
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-white data-[state=active]:shadow-lg rounded-2xl transition-all duration-500 py-4 text-lg font-semibold"
+                className="data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-lg data-[state=inactive]:text-muted-foreground rounded-2xl transition-all duration-500 py-4 text-lg font-semibold"
               >
                 <feature.icon className="w-6 h-6 mr-3" />
                 {feature.title}
