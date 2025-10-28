@@ -89,7 +89,7 @@ export const InteractiveDemo = () => {
   ];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section id="pos" className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0" style={{ 
         background: 'radial-gradient(ellipse at center, hsl(300 90% 65% / 0.08), transparent 70%)'
       }} />

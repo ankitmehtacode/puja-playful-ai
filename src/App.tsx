@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import Kitchen from "./pages/Kitchen";
 import Inventory from "./pages/Inventory";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
             <Route path="/kitchen" element={<Kitchen />} />
             <Route path="/inventory" element={<Inventory />} />
             <Route path="*" element={<NotFound />} />

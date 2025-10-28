@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ShapeBlur } from "@/components/ui/shape-blur";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -19,6 +20,14 @@ import minimalDashboard from "@/assets/minimal-dashboard.jpg";
 
 export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const scrollToFeatures = () => {
+    const element = document.querySelector('#features');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -104,6 +113,7 @@ export const HeroSection = () => {
                 className="btn-primary"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={() => navigate("/auth")}
               >
                 <Sparkles className="w-6 h-6 mr-3" />
                 Begin Your Journey
@@ -113,6 +123,7 @@ export const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="btn-glass"
+                onClick={scrollToFeatures}
               >
                 <Play className="w-6 h-6 mr-3" />
                 See the Magic

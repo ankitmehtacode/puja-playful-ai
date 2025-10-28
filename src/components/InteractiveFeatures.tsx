@@ -93,7 +93,7 @@ export const InteractiveFeatures = () => {
   ];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section id="analytics" className="py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0" style={{ background: 'var(--gradient-aurora)', opacity: 0.1 }} />
       
       {/* Shape Blur Background Effect */}
