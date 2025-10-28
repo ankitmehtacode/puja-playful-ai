@@ -90,11 +90,13 @@ export const FeaturesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <MagicBentoCard
               key={index}
-              className={`${feature.span} group hover:scale-[1.02] transition-transform duration-500`}
+              className={`${feature.span} group hover:scale-[1.02] transition-transform duration-500 ${
+                index % 3 === 1 ? 'lg:mt-8' : index % 3 === 2 ? 'lg:mt-16' : ''
+              }`}
               enableStars={true}
               enableSpotlight={true}
               enableBorderGlow={true}
@@ -106,8 +108,8 @@ export const FeaturesSection = () => {
             >
               <div className="h-full flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${feature.gradient} backdrop-blur-sm`}>
-                    <feature.icon className="w-8 h-8 text-foreground group-hover:scale-110 transition-transform duration-300" />
+                  <div className={`inline-flex p-5 rounded-3xl bg-gradient-to-br ${feature.gradient} backdrop-blur-sm shadow-lg`}>
+                    <feature.icon className="w-8 h-8 text-foreground group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
                   </div>
                   
                   <div className="space-y-2">

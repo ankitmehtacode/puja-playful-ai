@@ -207,7 +207,7 @@ export const MagicBentoCard: React.FC<MagicBentoCardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`magic-bento-card relative overflow-hidden rounded-3xl bg-card/50 backdrop-blur-sm border border-border/50 ${className}`}
+      className={`magic-bento-card relative overflow-hidden rounded-[2rem] bg-card/40 backdrop-blur-md border border-border/30 shadow-xl ${className}`}
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',

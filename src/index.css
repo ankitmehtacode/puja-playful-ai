@@ -35,7 +35,7 @@
     --input: 220 20% 12%;
     --ring: 200 15% 85%;
 
-    --radius: 1.5rem;
+    --radius: 2rem;
 
     /* Subtle Dark Gradients */
     --gradient-nebula: linear-gradient(135deg, hsl(220 25% 5%), hsl(230 20% 7%), hsl(220 25% 5%));
