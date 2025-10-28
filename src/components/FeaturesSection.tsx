@@ -21,7 +21,7 @@ export const FeaturesSection = () => {
       subtitle: "Track user behavior",
       description: "Overview",
       gradient: "from-cyan-500/20 to-blue-500/20",
-      span: "lg:col-span-2 lg:row-span-2"
+      span: "lg:col-span-1 lg:row-span-1"
     },
     {
       icon: Utensils,
@@ -61,7 +61,7 @@ export const FeaturesSection = () => {
       subtitle: "Enterprise-grade protection",
       description: "Protection",
       gradient: "from-red-500/20 to-rose-500/20",
-      span: "lg:col-span-2 lg:row-span-1"
+      span: "lg:col-span-1 lg:row-span-1"
     }
   ];
 
@@ -90,7 +90,7 @@ export const FeaturesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <MagicBentoCard
               key={index}
