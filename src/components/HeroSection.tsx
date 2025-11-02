@@ -30,7 +30,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
       {/* Enchanted Nebula Background */}
       <div className="absolute inset-0" style={{ background: 'var(--gradient-nebula)' }}>
         <div className="absolute inset-0" style={{ 
@@ -66,7 +66,7 @@ export const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Hero Content */}
           <div className="space-y-12 animate-slide-up">
             {/* Magical Headline */}
