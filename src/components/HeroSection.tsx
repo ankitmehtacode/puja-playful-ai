@@ -77,7 +77,7 @@ export const HeroSection = () => {
             {/* Magical Headline */}
             <div className="space-y-8">
               <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
-                <span className="block text-gradient-primary mb-4" style={{ 
+                <span className="block text-gradient-primary mb-4 font-display tracking-tight" style={{ 
                   textShadow: 'var(--glow-primary)',
                   animation: 'pulse-glow 4s ease-in-out infinite'
                 }}>
