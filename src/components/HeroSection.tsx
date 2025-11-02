@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShapeBlur } from "@/components/ui/shape-blur";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,19 @@ import minimalDashboard from "@/assets/minimal-dashboard.jpg";
 
 export const HeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [orders, setOrders] = useState(127);
+  const [avgTime, setAvgTime] = useState(8);
+  const [isImageHovered, setIsImageHovered] = useState(false);
   const navigate = useNavigate();
+
+  // Simulate live updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOrders(prev => prev + Math.floor(Math.random() * 3) - 1);
+      setAvgTime(prev => Math.max(5, Math.min(12, prev + (Math.random() > 0.5 ? 1 : -1))));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToFeatures = () => {
     const element = document.querySelector('#features');
@@ -135,35 +147,66 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Interactive Dashboard Preview */}
           <div className="relative animate-fade-in-scale" style={{ animationDelay: "0.3s" }}>
-            <div className="relative">
+            <div 
+              className="relative group cursor-pointer"
+              onMouseEnter={() => setIsImageHovered(true)}
+              onMouseLeave={() => setIsImageHovered(false)}
+            >
               <img 
                 src={minimalDashboard} 
                 alt="AI-powered restaurant management dashboard with modern POS interface"
-                className="w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105"
+                className={`w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 ${
+                  isImageHovered ? 'scale-105 shadow-primary/20' : ''
+                }`}
                 loading="eager"
               />
               
-              <div className="absolute -top-6 -left-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
+              {/* Live Indicator */}
+              <div className="absolute top-4 right-4 bg-card/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-border/50 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                <span className="text-xs font-medium text-foreground">LIVE</span>
+              </div>
+
+              {/* Today's Orders Card */}
+              <div 
+                className={`absolute -top-6 -left-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50 transition-all duration-300 ${
+                  isImageHovered ? 'scale-110 shadow-xl' : ''
+                }`}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <div>
-                    <div className="text-sm font-medium text-muted-foreground">Today's Orders</div>
-                    <div className="text-lg font-semibold text-foreground">127</div>
+                    <div className="text-sm font-medium text-muted-foreground">Today&apos;s Orders</div>
+                    <div className="text-lg font-semibold text-foreground transition-all duration-300">
+                      {orders}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
+              {/* Average Time Card */}
+              <div 
+                className={`absolute -bottom-6 -right-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50 transition-all duration-300 ${
+                  isImageHovered ? 'scale-110 shadow-xl' : ''
+                }`}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
                   <div>
                     <div className="text-sm font-medium text-muted-foreground">Average Time</div>
-                    <div className="text-lg font-semibold text-foreground">8 min</div>
+                    <div className="text-lg font-semibold text-foreground transition-all duration-300">
+                      {avgTime} min
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* Hover Overlay */}
+              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-t from-primary/20 to-transparent opacity-0 transition-opacity duration-500 ${
+                isImageHovered ? 'opacity-100' : ''
+              }`} />
             </div>
           </div>
         </div>
