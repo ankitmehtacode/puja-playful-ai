@@ -38,13 +38,32 @@ export const MagicBentoCard: React.FC<MagicBentoCardProps> = ({
   const borderRef = useRef<HTMLDivElement>(null);
   const starsRef = useRef<HTMLDivElement>(null);
   const [particles, setParticles] = useState<Array<{ x: number; y: number; delay: number }>>([]);
+  const [isInView, setIsInView] = useState(false);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const shouldAnimate = !disableAnimations && !isMobile;
+  const shouldAnimate = !disableAnimations && !isMobile && isInView;
+
+  // Intersection Observer for lazy animation
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!shouldAnimate || !enableStars) return;
 
-    const newParticles = Array.from({ length: particleCount }, () => ({
+    const newParticles = Array.from({ length: Math.min(particleCount, 6) }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       delay: Math.random() * 2,

@@ -151,6 +151,7 @@ export const HeroSection = () => {
                 src={minimalDashboard} 
                 alt="AI-powered restaurant management dashboard with modern POS interface"
                 className="w-full h-auto rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105"
+                loading="eager"
               />
               
               <div className="absolute -top-6 -left-6 bg-card/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border/50">
