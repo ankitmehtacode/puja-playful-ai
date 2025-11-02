@@ -67,29 +67,20 @@ export const HeroSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Enchanted Content */}
-          <div className="space-y-10 animate-slide-up">
-            <Badge className="border-2 border-primary/50 px-6 py-3 backdrop-blur-md bg-primary/10 shimmer">
-              <Sparkles className="w-4 h-4 mr-2 inline" />
-              The Enchanted Kitchen
-            </Badge>
-
+          {/* Hero Content */}
+          <div className="space-y-12 animate-slide-up">
             {/* Magical Headline */}
-            <div className="space-y-8">
-              <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
-                <span className="block text-gradient-primary mb-4 font-display tracking-tight" style={{ 
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <span className="block text-gradient-primary mb-3 font-display tracking-tight" style={{ 
                   textShadow: 'var(--glow-primary)',
                   animation: 'pulse-glow 4s ease-in-out infinite'
                 }}>
-                  FlowChef Pro
-                </span>
-                <span className="block text-4xl lg:text-5xl text-gradient-secondary font-light" 
-                      style={{ textShadow: 'var(--glow-secondary)' }}>
                   Where Magic Meets Mastery
                 </span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-light">
-                Step into the future of culinary operations. Experience real-time orchestration that feels like pure enchantment.
+                Step into the future of culinary operations. Experience real-time orchestration that transforms your restaurant into a seamless, enchanted workspace.
               </p>
             </div>
 
