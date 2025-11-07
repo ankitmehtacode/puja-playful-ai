@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,6 +21,8 @@ import {
 } from "lucide-react";
 
 export default function Auth() {
+  const navigate = useNavigate();
+  const { login, isAuthenticated } = useAuth();
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,24 +31,43 @@ export default function Auth() {
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate authentication
-    setTimeout(() => {
+    try {
+      const success = await login(formData.email, formData.password);
+      
+      if (success) {
+        toast({
+          title: "Welcome back!",
+          description: "Successfully logged in as Super Admin",
+        });
+        navigate("/dashboard");
+      } else {
+        toast({
+          title: "Authentication failed",
+          description: "Invalid credentials. Please check your email and password.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
       toast({
-        title: isSignUp ? "Account created!" : "Welcome back!",
-        description: isSignUp 
-          ? "Your magical journey begins now." 
-          : "Successfully signed in to your account.",
+        title: "Error",
+        description: "An error occurred during login",
+        variant: "destructive"
       });
+    } finally {
       setIsLoading(false);
-      navigate("/");
-    }, 1500);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
