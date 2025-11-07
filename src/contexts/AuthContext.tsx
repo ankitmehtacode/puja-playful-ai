@@ -26,8 +26,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Super admin credentials
-    if (email === 'superadmin@Coffeeconcept' && password === 'Coffeeconcept') {
+    // Super admin credentials (case-insensitive email)
+    if (email.toLowerCase() === 'superadmin@coffeeconcept' && password === 'Coffeeconcept') {
       const superAdmin: User = {
         email: 'superadmin@Coffeeconcept',
         role: 'superadmin',
