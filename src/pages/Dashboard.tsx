@@ -67,16 +67,16 @@ const Dashboard = () => {
   };
 
   const stats = [
-    { label: 'Total Revenue', value: '$24,580', change: '+12.5%', icon: DollarSign, color: 'text-green-500' },
+    { label: 'Total Revenue', value: '₹24,580', change: '+12.5%', icon: DollarSign, color: 'text-green-500' },
     { label: 'Orders Today', value: '156', change: '+8.2%', icon: ShoppingBag, color: 'text-blue-500' },
     { label: 'Active Staff', value: staff.filter(s => s.status === 'active').length.toString(), change: 'Online', icon: Users, color: 'text-purple-500' },
     { label: 'Avg Wait Time', value: '12 min', change: '-2.3 min', icon: Clock, color: 'text-orange-500' },
   ];
 
   const recentOrders = [
-    { id: '#1234', table: '12', items: 'Burger, Fries, Coke', amount: '$24.50', status: 'Preparing' },
-    { id: '#1235', table: '8', items: 'Pizza Margherita', amount: '$18.00', status: 'Ready' },
-    { id: '#1236', table: '5', items: 'Pasta Carbonara, Wine', amount: '$32.00', status: 'Delivered' },
+    { id: '#1234', table: '12', items: 'Burger, Fries, Coke', amount: '₹24.50', status: 'Preparing' },
+    { id: '#1235', table: '8', items: 'Pizza Margherita', amount: '₹18.00', status: 'Ready' },
+    { id: '#1236', table: '5', items: 'Pasta Carbonara, Wine', amount: '₹32.00', status: 'Delivered' },
   ];
 
   if (!user) {
@@ -182,7 +182,7 @@ const Dashboard = () => {
                           className="h-full bg-primary"
                         />
                       </div>
-                      <span className="text-sm font-medium w-16 text-right">${(2000 + i * 400).toLocaleString()}</span>
+                      <span className="text-sm font-medium w-16 text-right">₹{(2000 + i * 400).toLocaleString()}</span>
                     </div>
                   ))}
                 </CardContent>
@@ -195,10 +195,10 @@ const Dashboard = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {[
-                    { name: 'Classic Burger', orders: 45, revenue: '$450' },
-                    { name: 'Margherita Pizza', orders: 38, revenue: '$684' },
-                    { name: 'Caesar Salad', orders: 32, revenue: '$384' },
-                    { name: 'Pasta Carbonara', orders: 28, revenue: '$560' },
+                    { name: 'Classic Burger', orders: 45, revenue: '₹450' },
+                    { name: 'Margherita Pizza', orders: 38, revenue: '₹684' },
+                    { name: 'Caesar Salad', orders: 32, revenue: '₹384' },
+                    { name: 'Pasta Carbonara', orders: 28, revenue: '₹560' },
                   ].map((dish, i) => (
                     <div key={dish.name} className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -371,7 +371,7 @@ const Dashboard = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold">$18,420</div>
+                  <div className="text-3xl font-bold">₹18,420</div>
                   <p className="text-sm text-green-500 mt-1">+15.3% from last week</p>
                 </CardContent>
               </Card>
@@ -383,7 +383,7 @@ const Dashboard = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold">$24.50</div>
+                  <div className="text-3xl font-bold">₹24.50</div>
                   <p className="text-sm text-green-500 mt-1">+3.2% increase</p>
                 </CardContent>
               </Card>
