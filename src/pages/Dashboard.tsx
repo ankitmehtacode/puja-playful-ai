@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
@@ -9,12 +9,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Users, ChefHat, Utensils, TrendingUp, DollarSign, 
   Clock, ShoppingBag, LogOut, UserPlus, Shield, 
-  BarChart3, Activity, Calendar
+  BarChart3, Activity, Calendar, CalendarCheck
 } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
+
+const ReservationsTab = lazy(() => import('./Reservations'));
 
 interface StaffMember {
   id: string;
@@ -143,18 +145,22 @@ const Dashboard = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4 lg:w-auto">
+          <TabsList className="grid w-full grid-cols-5 lg:w-auto">
             <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
             </TabsTrigger>
+            <TabsTrigger value="reservations">
+              <CalendarCheck className="w-4 h-4 mr-2" />
+              Reservations
+            </TabsTrigger>
             <TabsTrigger value="staff">
               <Users className="w-4 h-4 mr-2" />
-              Staff Management
+              Staff
             </TabsTrigger>
             <TabsTrigger value="orders">
               <Activity className="w-4 h-4 mr-2" />
-              Live Orders
+              Orders
             </TabsTrigger>
             <TabsTrigger value="analytics">
               <TrendingUp className="w-4 h-4 mr-2" />
@@ -216,6 +222,17 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          {/* Reservations Tab */}
+          <TabsContent value="reservations" className="space-y-6">
+            <Suspense fallback={
+              <div className="flex items-center justify-center py-12">
+                <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              </div>
+            }>
+              <ReservationsTab />
+            </Suspense>
           </TabsContent>
 
           {/* Staff Management Tab */}

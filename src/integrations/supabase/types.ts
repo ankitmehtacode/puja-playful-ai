@@ -14,7 +14,98 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      reservations: {
+        Row: {
+          advance_payment: number | null
+          created_at: string
+          customer_email: string | null
+          customer_name: string
+          customer_phone: string
+          id: string
+          number_of_guests: number
+          payment_status: string | null
+          reservation_date: string
+          reservation_time: string
+          special_requests: string | null
+          status: Database["public"]["Enums"]["reservation_status"]
+          table_id: string
+          updated_at: string
+        }
+        Insert: {
+          advance_payment?: number | null
+          created_at?: string
+          customer_email?: string | null
+          customer_name: string
+          customer_phone: string
+          id?: string
+          number_of_guests: number
+          payment_status?: string | null
+          reservation_date: string
+          reservation_time: string
+          special_requests?: string | null
+          status?: Database["public"]["Enums"]["reservation_status"]
+          table_id: string
+          updated_at?: string
+        }
+        Update: {
+          advance_payment?: number | null
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string
+          customer_phone?: string
+          id?: string
+          number_of_guests?: number
+          payment_status?: string | null
+          reservation_date?: string
+          reservation_time?: string
+          special_requests?: string | null
+          status?: Database["public"]["Enums"]["reservation_status"]
+          table_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reservations_table_id_fkey"
+            columns: ["table_id"]
+            isOneToOne: false
+            referencedRelation: "restaurant_tables"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      restaurant_tables: {
+        Row: {
+          capacity: number
+          created_at: string
+          floor_x: number
+          floor_y: number
+          id: string
+          status: Database["public"]["Enums"]["table_status"]
+          table_number: string
+          updated_at: string
+        }
+        Insert: {
+          capacity: number
+          created_at?: string
+          floor_x: number
+          floor_y: number
+          id?: string
+          status?: Database["public"]["Enums"]["table_status"]
+          table_number: string
+          updated_at?: string
+        }
+        Update: {
+          capacity?: number
+          created_at?: string
+          floor_x?: number
+          floor_y?: number
+          id?: string
+          status?: Database["public"]["Enums"]["table_status"]
+          table_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +114,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      reservation_status: "pending" | "confirmed" | "cancelled" | "completed"
+      table_status: "available" | "occupied" | "reserved"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +242,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      reservation_status: ["pending", "confirmed", "cancelled", "completed"],
+      table_status: ["available", "occupied", "reserved"],
+    },
   },
 } as const
