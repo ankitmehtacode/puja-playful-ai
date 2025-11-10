@@ -14,6 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
+      inventory_items: {
+        Row: {
+          category: string
+          created_at: string | null
+          current_stock: number
+          id: string
+          last_restocked: string | null
+          minimum_stock: number
+          name: string
+          purchase_cost: number
+          status: Database["public"]["Enums"]["inventory_status"]
+          supplier_contact: string | null
+          supplier_name: string | null
+          unit: string
+          updated_at: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string | null
+          current_stock?: number
+          id?: string
+          last_restocked?: string | null
+          minimum_stock: number
+          name: string
+          purchase_cost: number
+          status?: Database["public"]["Enums"]["inventory_status"]
+          supplier_contact?: string | null
+          supplier_name?: string | null
+          unit?: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          current_stock?: number
+          id?: string
+          last_restocked?: string | null
+          minimum_stock?: number
+          name?: string
+          purchase_cost?: number
+          status?: Database["public"]["Enums"]["inventory_status"]
+          supplier_contact?: string | null
+          supplier_name?: string | null
+          unit?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       reservations: {
         Row: {
           advance_payment: number | null
@@ -114,6 +162,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      inventory_status: "in_stock" | "low_stock" | "out_of_stock"
       reservation_status: "pending" | "confirmed" | "cancelled" | "completed"
       table_status: "available" | "occupied" | "reserved"
     }
@@ -243,6 +292,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      inventory_status: ["in_stock", "low_stock", "out_of_stock"],
       reservation_status: ["pending", "confirmed", "cancelled", "completed"],
       table_status: ["available", "occupied", "reserved"],
     },

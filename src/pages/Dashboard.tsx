@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Users, ChefHat, Utensils, TrendingUp, DollarSign, 
   Clock, ShoppingBag, LogOut, UserPlus, Shield, 
-  BarChart3, Activity, Calendar, CalendarCheck
+  BarChart3, Activity, Calendar, CalendarCheck, Warehouse
 } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
@@ -145,7 +145,7 @@ const Dashboard = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 lg:w-auto">
+          <TabsList className="grid w-full grid-cols-6 lg:w-auto">
             <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
@@ -153,6 +153,10 @@ const Dashboard = () => {
             <TabsTrigger value="reservations">
               <CalendarCheck className="w-4 h-4 mr-2" />
               Reservations
+            </TabsTrigger>
+            <TabsTrigger value="inventory">
+              <Warehouse className="w-4 h-4 mr-2" />
+              Inventory
             </TabsTrigger>
             <TabsTrigger value="staff">
               <Users className="w-4 h-4 mr-2" />
@@ -233,6 +237,25 @@ const Dashboard = () => {
             }>
               <ReservationsTab />
             </Suspense>
+          </TabsContent>
+
+          {/* Inventory Tab */}
+          <TabsContent value="inventory" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Quick Inventory Access</CardTitle>
+                <CardDescription>Manage your restaurant inventory and stock levels</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  Access the full inventory management system to track stock levels, supplier information, and automated low-stock alerts.
+                </p>
+                <Button onClick={() => navigate('/inventory')} className="btn-primary">
+                  <Warehouse className="w-4 h-4 mr-2" />
+                  Go to Inventory
+                </Button>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           {/* Staff Management Tab */}
