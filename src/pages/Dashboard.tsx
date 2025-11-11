@@ -9,12 +9,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Users, ChefHat, Utensils, TrendingUp, DollarSign, 
   Clock, ShoppingBag, LogOut, UserPlus, Shield, 
-  BarChart3, Activity, Calendar, CalendarCheck, Warehouse
+  BarChart3, Activity, Calendar, CalendarCheck, Warehouse, Sparkles
 } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
+import { InteractiveDemo } from '@/components/InteractiveDemo';
 
 const ReservationsTab = lazy(() => import('./Reservations'));
 
@@ -145,10 +146,14 @@ const Dashboard = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6 lg:w-auto">
+          <TabsList className="grid w-full grid-cols-7 lg:w-auto">
             <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
+            </TabsTrigger>
+            <TabsTrigger value="mystical">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Mystical
             </TabsTrigger>
             <TabsTrigger value="reservations">
               <CalendarCheck className="w-4 h-4 mr-2" />
@@ -226,6 +231,11 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          {/* Mystical Dashboard Tab */}
+          <TabsContent value="mystical" className="space-y-6">
+            <InteractiveDemo />
           </TabsContent>
 
           {/* Reservations Tab */}
