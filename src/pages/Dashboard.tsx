@@ -146,7 +146,7 @@ const Dashboard = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-7 lg:w-auto">
+          <TabsList className="grid w-full grid-cols-6 lg:w-auto">
             <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
@@ -167,13 +167,9 @@ const Dashboard = () => {
               <Activity className="w-4 h-4 mr-2" />
               Orders
             </TabsTrigger>
-            <TabsTrigger value="analytics">
-              <TrendingUp className="w-4 h-4 mr-2" />
-              Analytics
-            </TabsTrigger>
-            <TabsTrigger value="mystical">
+            <TabsTrigger value="mystical-analytics">
               <Sparkles className="w-4 h-4 mr-2" />
-              Mystical
+              Mystical Analytics
             </TabsTrigger>
           </TabsList>
 
@@ -233,9 +229,48 @@ const Dashboard = () => {
             </div>
           </TabsContent>
 
-          {/* Mystical Dashboard Tab */}
-          <TabsContent value="mystical" className="space-y-6">
+          {/* Mystical Analytics Tab */}
+          <TabsContent value="mystical-analytics" className="space-y-6">
             <InteractiveDemo />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Calendar className="w-5 h-5" />
+                    This Week
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">₹18,420</div>
+                  <p className="text-sm text-green-500 mt-1">+15.3% from last week</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5" />
+                    Average Order
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">₹24.50</div>
+                  <p className="text-sm text-green-500 mt-1">+3.2% increase</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Activity className="w-5 h-5" />
+                    Peak Hours
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-3xl font-bold">7-9 PM</div>
+                  <p className="text-sm text-muted-foreground mt-1">Most busy period</p>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           {/* Reservations Tab */}
@@ -410,47 +445,6 @@ const Dashboard = () => {
             </Card>
           </TabsContent>
 
-          {/* Analytics Tab */}
-          <TabsContent value="analytics" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Calendar className="w-5 h-5" />
-                    This Week
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold">₹18,420</div>
-                  <p className="text-sm text-green-500 mt-1">+15.3% from last week</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5" />
-                    Average Order
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold">₹24.50</div>
-                  <p className="text-sm text-green-500 mt-1">+3.2% increase</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Activity className="w-5 h-5" />
-                    Peak Hours
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-bold">7-9 PM</div>
-                  <p className="text-sm text-muted-foreground mt-1">Most busy period</p>
-                </CardContent>
-              </Card>
-            </div>
-          </TabsContent>
         </Tabs>
       </div>
     </div>
