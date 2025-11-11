@@ -151,10 +151,6 @@ const Dashboard = () => {
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
             </TabsTrigger>
-            <TabsTrigger value="mystical">
-              <Sparkles className="w-4 h-4 mr-2" />
-              Mystical
-            </TabsTrigger>
             <TabsTrigger value="reservations">
               <CalendarCheck className="w-4 h-4 mr-2" />
               Reservations
@@ -174,6 +170,10 @@ const Dashboard = () => {
             <TabsTrigger value="analytics">
               <TrendingUp className="w-4 h-4 mr-2" />
               Analytics
+            </TabsTrigger>
+            <TabsTrigger value="mystical">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Mystical
             </TabsTrigger>
           </TabsList>
 
