@@ -113,7 +113,6 @@ export const InteractiveDemo = () => {
           </Badge>
           <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
             <span className="block text-gradient-primary mb-4">See the Future</span>
-            <span className="block text-gradient-secondary text-4xl lg:text-5xl font-light">in real-time clarity</span>
           </h2>
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
             Your mystical dashboard reveals insights that feel like prophecy
