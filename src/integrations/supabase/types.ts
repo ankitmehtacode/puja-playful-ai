@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      customer_feedback: {
+        Row: {
+          category: string
+          created_at: string
+          customer_email: string | null
+          customer_name: string
+          customer_phone: string | null
+          feedback_text: string | null
+          id: string
+          rating: number
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          customer_email?: string | null
+          customer_name: string
+          customer_phone?: string | null
+          feedback_text?: string | null
+          id?: string
+          rating: number
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string
+          customer_phone?: string | null
+          feedback_text?: string | null
+          id?: string
+          rating?: number
+        }
+        Relationships: []
+      }
       inventory_items: {
         Row: {
           category: string
@@ -59,6 +92,51 @@ export type Database = {
           supplier_name?: string | null
           unit?: string
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      menu_items: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          is_available: boolean
+          name: string
+          preparation_time: number | null
+          price: number
+          total_orders: number
+          total_revenue: number
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_available?: boolean
+          name: string
+          preparation_time?: number | null
+          price: number
+          total_orders?: number
+          total_revenue?: number
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_available?: boolean
+          name?: string
+          preparation_time?: number | null
+          price?: number
+          total_orders?: number
+          total_revenue?: number
+          updated_at?: string
         }
         Relationships: []
       }
@@ -150,6 +228,42 @@ export type Database = {
           id?: string
           status?: Database["public"]["Enums"]["table_status"]
           table_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sales_records: {
+        Row: {
+          created_at: string
+          customer_name: string | null
+          customer_phone: string | null
+          id: string
+          items: Json
+          order_id: string
+          payment_method: string
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          customer_name?: string | null
+          customer_phone?: string | null
+          id?: string
+          items: Json
+          order_id: string
+          payment_method: string
+          total_amount: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          customer_name?: string | null
+          customer_phone?: string | null
+          id?: string
+          items?: Json
+          order_id?: string
+          payment_method?: string
+          total_amount?: number
           updated_at?: string
         }
         Relationships: []

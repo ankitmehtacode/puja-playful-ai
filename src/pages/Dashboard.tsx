@@ -16,6 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
 import { InteractiveDemo } from '@/components/InteractiveDemo';
+import { ReportsSection } from '@/components/dashboard/ReportsSection';
+import { SalesAnalytics } from '@/components/dashboard/SalesAnalytics';
 
 const ReservationsTab = lazy(() => import('./Reservations'));
 
@@ -146,10 +148,14 @@ const Dashboard = () => {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6 lg:w-auto">
+          <TabsList className="grid w-full grid-cols-7 lg:w-auto">
             <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
               Overview
+            </TabsTrigger>
+            <TabsTrigger value="reports">
+              <TrendingUp className="w-4 h-4 mr-2" />
+              Reports
             </TabsTrigger>
             <TabsTrigger value="reservations">
               <CalendarCheck className="w-4 h-4 mr-2" />
@@ -227,6 +233,12 @@ const Dashboard = () => {
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
+
+          {/* Reports Tab - NEW COMPREHENSIVE REPORTING */}
+          <TabsContent value="reports" className="space-y-6">
+            <ReportsSection />
+            <SalesAnalytics />
           </TabsContent>
 
           {/* Mystical Analytics Tab */}
