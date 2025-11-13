@@ -231,7 +231,7 @@ const Dashboard = () => {
 
           {/* Mystical Analytics Tab */}
           <TabsContent value="mystical-analytics" className="space-y-6">
-            <InteractiveDemo />
+            <InteractiveDemo showSubtitle={false} />
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <Card>
