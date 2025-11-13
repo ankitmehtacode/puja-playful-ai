@@ -114,9 +114,6 @@ export const InteractiveDemo = () => {
           <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
             <span className="block text-gradient-primary mb-4">See the Future</span>
           </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto font-light">
-            Your mystical dashboard reveals insights that feel like prophecy
-          </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
